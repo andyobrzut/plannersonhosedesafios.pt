@@ -401,3 +401,23 @@
   .planner-page { min-height: auto; padding-left: 0; }
   .tab-sidebar { display: none !important; }
 }
+/* =============================================================
+   AJUSTE FORÇADO: NÚMEROS DOS QUADRADINHOS DOS DESAFIOS
+   ============================================================= */
+
+/* Alvo nos números dentro dos grids de desafios (botões e itens de check) */
+.planner-card button, 
+.planner-card [class*="grid"] div,
+.planner-card [class*="grid"] button,
+.habit-check,
+[class*="challenge"] button {
+  font-size: 1.1rem !important; /* Aumenta consideravelmente o número interno */
+  font-weight: 700 !important;   /* Deixa o número mais gordinho/visível */
+  color: #594A4E !important;     /* Garante a cor marrom cacau para leitura */
+}
+
+/* Se você estiver usando botões que ficam com o "check" (marcado) */
+.planner-card button svg, 
+.planner-card [class*="checked"] {
+  font-size: 1.1rem !important;
+}

@@ -69,55 +69,57 @@
     -moz-osx-font-smoothing: grayscale;
   }
   
-  /* =============================================================
-     ATUALIZAÇÃO DE ESCALA TIPOGRÁFICA (FONTES AMPLIADAS)
-     ============================================================= */
-  
-  /* Título principal da página (Ex: "Desafios financeiros") */
+  /* Título principal da página (Ex: "Desafios financeiros", "Minha estante de conquistas") */
   h1, .hero-title {
-    font-size: 2rem; /* Aumentado de 1.75rem */
+    font-size: 2rem;
     font-weight: 900;
     color: #4a3728;
     letter-spacing: -0.02em;
   }
   
-  /* Títulos dos cards (Ex: "52 semanas", "30 dias sem gastos") */
+  /* Títulos dos cards (Ex: "52 semanas", "Criadora de possibilidades") */
   h2, .section-title {
-    font-size: 1.45rem; /* Aumentado de 1.35rem */
+    font-size: 1.45rem;
     font-weight: 800;
     color: #4a3728;
     letter-spacing: -0.01em;
   }
 
   h3, .card-title {
-    font-size: 1.25rem; /* Aumentado de 1.15rem */
+    font-size: 1.25rem;
     font-weight: 700;
     color: #5B3A29;
   }
 
-  /* Parágrafos e instruções principais (Ex: "Clique nas etapas concluídas...") */
-  p, .body-text {
-    font-size: 1.05rem; /* Aumentado de 0.95rem para dar mais presença */
+  /* Parágrafos, instruções e FRASES DE APOIO ABAIXO dos títulos */
+  p, .body-text, h1 + p, h2 + p {
+    font-size: 1.1rem !important;   /* Alinhado para leitura ideal de apoio */
     line-height: 1.6;
-    font-weight: 500; /* Mudado de 400 para 500 (Medium) para encorpar a escrita */
+    font-weight: 500 !important;    /* Peso Medium para encorpar a escrita */
+    color: #7c6a5c !important;
   }
 
-  /* Textos de suporte, sub-legendas e tags (Onde estava muito pequeno) */
+  /* Textos de suporte internos dos cards (Ex: "Concluiu sua primeira etapa") */
   small, 
   .field-label, 
   .mini-challenge small, 
   .spotlight-values span,
   .hero-note span,
   .history-message,
+  .planner-card p,
+  .planner-card span,
   .planner-card small,
+  [class*="conquista"] p,
+  [class*="bloqueada"] p,
   span[class*="conquistados"] {
-    font-size: 0.9rem !important; /* Subiu de 0.8rem para 0.9rem (ganho real de legibilidade) */
-    font-weight: 600;
-    color: #7c6a5c; /* Tom marrom suave para manter a harmonia */
+    font-size: 0.95rem !important;  /* Ampliado para nunca sumir no fundo */
+    font-weight: 600 !important;    /* Dá corpo às letrinhas */
+    color: #8B6347 !important;
     letter-spacing: 0.02em;
+    opacity: 1 !important;
   }
 
-  /* Rótulo superior pequeno (Ex: "META: R$ 1.378,00", "ECONOMIZAR TAMBÉM PODE...") */
+  /* Rótulo superior pequeno (Ex: "META: R$ 1.378,00", "CELEBRE CADA PASSO") */
   .field-label, 
   [class*="meta"] {
     font-size: 0.85rem !important;
@@ -148,7 +150,7 @@
   .planner-page {
     min-height: 100vh;
     position: relative;
-    padding-left: 122px; /* Espaço para o menu lateral */
+    padding-left: 122px;
   }
 
   .planner-card {
@@ -165,7 +167,6 @@
     transform: translateY(-2px);
   }
 
-  /* Inputs, Textareas e Selects Harmonizados */
   .planner-page input,
   .planner-page textarea,
   .planner-page select {
@@ -190,7 +191,6 @@
     outline: none;
   }
 
-  /* Botões Principais Harmonizados */
   .nav-btn {
     font-family: 'Nunito', sans-serif;
     font-weight: 700;
@@ -225,7 +225,6 @@
     color: #FFF7EA;
   }
 
-  /* Elementos de Progresso e Customizações */
   .progress-bar {
     height: 12px;
     border-radius: 999px;
@@ -259,14 +258,13 @@
     color: white;
   }
 
-  /* Decorações do Tema */
   .dotted-line { border-bottom: 1.5px dotted #D4B896; margin: 0.5rem 0; }
   .ruled-line { border-bottom: 1px solid #E8D5C0; margin: 0.6rem 0; }
   .washi-tape { height: 18px; border-radius: 3px; opacity: 0.75; transform: rotate(-1.5deg); display: inline-block; }
 }
 
 /* =============================================================
-   3. MENU LATERAL (TAB SIDEBAR) - NAVEGAÇÃO PREMIUM
+   3. MENU SUPERIOR / LATERAL (TAB SIDEBAR)
    ============================================================= */
 .tab-sidebar {
   position: fixed;
@@ -280,18 +278,22 @@
   width: 116px;
 }
 
+/* Correção de chaves e ampliação aplicada com segurança */
 .tab-btn {
-  .tab-btn {
   font-family: 'Nunito', sans-serif;
-  font-size: 1rem !important;      /* Aumentado para 1rem (aprox. 16px) */
-  font-weight: 700 !important;     /* Deixa a escrita mais marcante */
-  padding: 0.75rem 1.2rem !important; /* Mais espaçamento interno para encorpar o botão */
+  font-size: 1rem !important;      /* Aumentado para dar destaque total */
+  font-weight: 700 !important;     /* Escrita marcante */
+  padding: 0.75rem 1.2rem !important; /* Botão encorpado */
   color: #594A4E !important;
-  letter-spacing: 0.01em;
-}
-
-.tab-btn.active {
-  font-weight: 800 !important;     /* Destaca ainda mais a aba ativa */
+  background: #FFFFFF;
+  border-radius: 0 8px 8px 0;
+  border: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.85;
+  box-shadow: 0 2px 7px rgba(54, 45, 84, 0.08);
+  transition: all 0.2s ease;
 }
 
 .tab-btn:hover {
@@ -303,7 +305,7 @@
 .tab-btn.active {
   width: 116px;
   opacity: 1;
-  font-weight: 800;
+  font-weight: 800 !important;     /* Destaca a aba ativa */
   border: 2px solid #A96F45;
   box-shadow: 0 4px 12px rgba(169, 111, 69, 0.15);
 }
@@ -350,7 +352,7 @@
 @media (max-width: 720px) {
   .planner-page {
     padding-left: 0;
-    padding-bottom: 72px; /* Espaço para o menu que vira barra inferior */
+    padding-bottom: 72px; 
   }
 
   .tab-sidebar {
@@ -367,14 +369,15 @@
     gap: 8px;
   }
 
+  /* Mantém equilibrado em telas pequenas para não estourar */
   .tab-btn, .tab-btn.active {
     min-width: 80px;
     width: auto;
     border-radius: 8px;
     flex-direction: column;
     justify-content: center;
-    padding: 0.5rem;
-    font-size: 0.75rem;
+    padding: 0.5rem !important;
+    font-size: 0.8rem !important;
     gap: 2px;
   }
 
@@ -397,22 +400,20 @@
   .planner-page { min-height: auto; padding-left: 0; }
   .tab-sidebar { display: none !important; }
 }
-/* =============================================================
-   AJUSTE FORÇADO: NÚMEROS DOS QUADRADINHOS DOS DESAFIOS
-   ============================================================= */
 
-/* Alvo nos números dentro dos grids de desafios (botões e itens de check) */
+/* =============================================================
+   6. AJUSTE FORÇADO: NÚMEROS DOS QUADRADINHOS DOS DESAFIOS
+   ============================================================= */
 .planner-card button, 
 .planner-card [class*="grid"] div,
 .planner-card [class*="grid"] button,
 .habit-check,
 [class*="challenge"] button {
-  font-size: 1.1rem !important; /* Aumenta consideravelmente o número interno */
-  font-weight: 700 !important;   /* Deixa o número mais gordinho/visível */
-  color: #594A4E !important;     /* Garante a cor marrom cacau para leitura */
+  font-size: 1.1rem !important; 
+  font-weight: 700 !important;   
+  color: #594A4E !important;     
 }
 
-/* Se você estiver usando botões que ficam com o "check" (marcado) */
 .planner-card button svg, 
 .planner-card [class*="checked"] {
   font-size: 1.1rem !important;

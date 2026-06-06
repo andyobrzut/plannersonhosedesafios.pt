@@ -64,6 +64,7 @@
 
 /* Cosmic Kitty preview theme */
 :root {
+   font-size: 18px; /* Adicione esta linha aqui */
   --background: #f8f6ff;
   --foreground: #332d4f;
   --card: #ffffff;
@@ -126,7 +127,7 @@
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  font-size: 0.72rem;
+  font-size: 0.9rem;
   font-weight: 800;
   letter-spacing: 0;
   opacity: 0.78;

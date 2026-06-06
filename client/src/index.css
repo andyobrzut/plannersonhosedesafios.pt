@@ -64,7 +64,7 @@
 
 /* Cosmic Kitty preview theme */
 :root {
-   font-size: 20px; /* Adicione esta linha aqui */
+   font-size: 19px; /* Adicione esta linha aqui */
   --background: #f8f6ff;
   --foreground: #332d4f;
   --card: #ffffff;
@@ -1045,46 +1045,39 @@
 }
 /* AJUSTE DEFINITIVO PARA TEXTOS PEQUENOS */
 
-/* 1. Aumenta todas as tags <small> do site */
-small {
-  font-size: 0.9rem !important;
+/* AJUSTE DE EQUILÍBRIO GLOBAL */
+
+/* 1. Voltamos a base para 17px (um pouco maior que o padrão, mas sem quebrar o layout) */
+:root {
+  font-size: 17px !important;
+}
+
+/* 2. Aumentamos especificamente os textos que você sentiu que estavam pequenos */
+small, 
+.mini-challenge small, 
+.spotlight-values span,
+.hero-note span,
+.history-message {
+  font-size: 0.95rem !important; /* Legendas legíveis */
   opacity: 0.9 !important;
-  display: inline-block;
-  margin-top: 4px;
 }
 
-/* 2. Ajusta especificamente os textos dos cards de estatísticas (KPIs) */
-.dream-kpis article p {
-  font-size: 0.9rem !important;
-  font-weight: 600 !important;
-}
-
-.dream-kpis article strong {
-  font-size: 1.1rem !important;
-}
-
-/* 3. Ajusta os textos de apoio (como o "cada um com seu próprio caminho") */
-.dream-kpis article small,
-.mini-challenge small,
-.spotlight-values span {
-  font-size: 0.9rem !important;
-  color: inherit !important;
-}
-
-/* 4. Ajusta a descrição abaixo do título principal */
+/* 3. Ajuste para os textos dentro dos cards e descrições */
+.planner-card p,
+.spotlight-copy p,
 .dream-brand p {
-  font-size: 1.1rem !important;
-}
-/* Aumentar as legendas pequenas abaixo dos números */
-.planner-card p, 
-.history-message,
-.history-item p,
-.history-item span {
-  font-size: 1.1rem !important; /* Estava muito pequeno, agora vai ficar legível */
-  font-weight: 600; /* Deixa um pouco mais grosso para facilitar a leitura */
+  font-size: 1.05rem !important; /* Texto do corpo levemente maior */
+  line-height: 1.5;
 }
 
-/* Ajuste específico para as frases embaixo dos cards de estatísticas */
-.planner-card span {
-  font-size: 1rem !important;
+/* 4. Ajuste para o menu lateral (Índice) não ficar minúsculo */
+.tab-btn {
+  font-size: 0.85rem !important;
+  padding: 0.5rem 0.7rem !important;
+}
+
+/* 5. Deixar os números e títulos com bom destaque */
+.dream-kpis strong,
+.spotlight-values strong {
+  font-size: 1.3rem !important;
 }

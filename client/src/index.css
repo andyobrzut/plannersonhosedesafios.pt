@@ -1047,7 +1047,7 @@
 
 /* 1. Aumenta todas as tags <small> do site */
 small {
-  font-size: 0.95rem !important;
+  font-size: 0.9rem !important;
   opacity: 0.9 !important;
   display: inline-block;
   margin-top: 4px;
@@ -1055,12 +1055,12 @@ small {
 
 /* 2. Ajusta especificamente os textos dos cards de estatísticas (KPIs) */
 .dream-kpis article p {
-  font-size: 1.1rem !important;
+  font-size: 0.9rem !important;
   font-weight: 600 !important;
 }
 
 .dream-kpis article strong {
-  font-size: 1.5rem !important;
+  font-size: 1.1rem !important;
 }
 
 /* 3. Ajusta os textos de apoio (como o "cada um com seu próprio caminho") */

@@ -1075,3 +1075,16 @@ small {
 .dream-brand p {
   font-size: 1.1rem !important;
 }
+/* Aumentar as legendas pequenas abaixo dos números */
+.planner-card p, 
+.history-message,
+.history-item p,
+.history-item span {
+  font-size: 1.1rem !important; /* Estava muito pequeno, agora vai ficar legível */
+  font-weight: 600; /* Deixa um pouco mais grosso para facilitar a leitura */
+}
+
+/* Ajuste específico para as frases embaixo dos cards de estatísticas */
+.planner-card span {
+  font-size: 1rem !important;
+}

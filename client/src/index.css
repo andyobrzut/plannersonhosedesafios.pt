@@ -64,7 +64,18 @@
 
 /* Cosmic Kitty preview theme */
 :root {
-   font-size: 19px; /* Adicione esta linha aqui */
+   :root {
+  /* Tamanhos de Fonte Padronizados */
+  --font-title: 24px;
+  --font-subtitle: 18px;
+  --font-body: 14px;
+  --font-caption: 12px;
+
+  /* Dica extra: Padronize os pesos da fonte também */
+  --weight-bold: 700;
+  --weight-medium: 500;
+  --weight-regular: 400;
+}
   --background: #f8f6ff;
   --foreground: #332d4f;
   --card: #ffffff;

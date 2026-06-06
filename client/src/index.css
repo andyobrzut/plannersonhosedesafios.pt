@@ -69,44 +69,60 @@
     -moz-osx-font-smoothing: grayscale;
   }
   
-  /* Padronização de Títulos do Sistema */
+  /* =============================================================
+     ATUALIZAÇÃO DE ESCALA TIPOGRÁFICA (FONTES AMPLIADAS)
+     ============================================================= */
+  
+  /* Título principal da página (Ex: "Desafios financeiros") */
   h1, .hero-title {
-    font-size: 1.75rem;
+    font-size: 2rem; /* Aumentado de 1.75rem */
     font-weight: 900;
     color: #4a3728;
     letter-spacing: -0.02em;
   }
   
+  /* Títulos dos cards (Ex: "52 semanas", "30 dias sem gastos") */
   h2, .section-title {
-    font-size: 1.35rem;
+    font-size: 1.45rem; /* Aumentado de 1.35rem */
     font-weight: 800;
     color: #4a3728;
     letter-spacing: -0.01em;
   }
 
   h3, .card-title {
-    font-size: 1.15rem;
+    font-size: 1.25rem; /* Aumentado de 1.15rem */
     font-weight: 700;
     color: #5B3A29;
   }
 
-  /* Padronização de Textos Corridos e Parágrafos */
+  /* Parágrafos e instruções principais (Ex: "Clique nas etapas concluídas...") */
   p, .body-text {
-    font-size: 0.95rem;
+    font-size: 1.05rem; /* Aumentado de 0.95rem para dar mais presença */
     line-height: 1.6;
-    font-weight: 400;
+    font-weight: 500; /* Mudado de 400 para 500 (Medium) para encorpar a escrita */
   }
 
-  /* Padronização de Legendas e Textos muito pequenos (Evita que fiquem ilegíveis) */
+  /* Textos de suporte, sub-legendas e tags (Onde estava muito pequeno) */
   small, 
   .field-label, 
   .mini-challenge small, 
   .spotlight-values span,
   .hero-note span,
-  .history-message {
-    font-size: 0.8rem;
+  .history-message,
+  .planner-card small,
+  span[class*="conquistados"] {
+    font-size: 0.9rem !important; /* Subiu de 0.8rem para 0.9rem (ganho real de legibilidade) */
     font-weight: 600;
-    letter-spacing: 0.04em;
+    color: #7c6a5c; /* Tom marrom suave para manter a harmonia */
+    letter-spacing: 0.02em;
+  }
+
+  /* Rótulo superior pequeno (Ex: "META: R$ 1.378,00", "ECONOMIZAR TAMBÉM PODE...") */
+  .field-label, 
+  [class*="meta"] {
+    font-size: 0.85rem !important;
+    font-weight: 700;
+    letter-spacing: 0.05em;
   }
 
   button:not(:disabled), select:not(:disabled), input:not(:disabled) {

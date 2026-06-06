@@ -467,41 +467,55 @@
   opacity: 1 !important;         /* Tira qualquer efeito apagado da data */
 }
 /* =============================================================
-   8. CORREÇÃO DE CONTRASTE: CARD DE DESTAQUE ESCURO
+   8. CORREÇÃO DEFINITIVA DE CONTRASTE: CARD DE DESTAQUE MARROM
    ============================================================= */
 
-/* Alvos para qualquer texto dentro do card com fundo marrom escuro */
-[style*="background-color"][style*="4a3728"] h1,
-[style*="background-color"][style*="4a3728"] h2,
-[style*="background-color"][style*="4a3728"] h3,
-[style*="background-color"][style*="4a3728"] p,
-[style*="background-color"][style*="4a3728"] span,
-[style*="background-color"][style*="4a3728"] strong,
-[style*="background-color"][style*="4a3728"] small,
+/* Alvos diretos baseados na árvore de elementos do card de destaque */
 .planner-page div[style*="gradient"] h3,
 .planner-page div[style*="gradient"] p,
 .planner-page div[style*="gradient"] span,
-.planner-page div[style*="gradient"] strong {
-  color: #FFF5F7 !important; /* Força todo o texto a virar Creme Papel super legível */
-  opacity: 1 !important;     /* Garante que nada fique semi-transparente */
+.planner-page div[style*="gradient"] strong,
+.planner-page div[style*="background"] h3,
+.planner-page div[style*="background"] p,
+.planner-page div[style*="background"] span,
+.planner-page div[style*="background"] strong,
+/* Fallback caso use classes do Tailwind para o fundo escuro */
+.bg-amber-950 h3, .bg-amber-950 p, .bg-amber-950 span, .bg-amber-950 strong,
+.bg-stone-800 h3, .bg-stone-800 p, .bg-stone-800 span, .bg-stone-800 strong,
+/* Seletor genérico matador para o bloco que contém o título "Meu cantinho de leitura" */
+div:has(> h3:contains("Meu cantinho")) *,
+div:has(> .text-3xl) * {
+  color: #FFF5F7 !important; /* Transforma quase tudo em Creme Papel super nítido */
+  opacity: 1 !important;
 }
 
-/* Deixa a descrição do sonho com um creme um pouco mais suave para elegância */
-[style*="background-color"][style*="4a3728"] p,
-.planner-page div[style*="gradient"] p {
-  color: #FFC2D1 !important; /* Rosa chá/creme suave para a descrição */
+/* 1. Título do Sonho em Destaque ("Meu cantinho de leitura") */
+.planner-page h3 + div ~ h3, 
+.planner-page div[style*="flex"] h3,
+div:has(> span:contains("SONHO MAIS PERTO")) + h3,
+.planner-page h3:has(+ p:contains("espaço calmo")) {
+  color: #FFF5F7 !important; 
+  font-weight: 900 !important;
+}
+
+/* 2. Descrição do Sonho ("Ter um espaço calmo para ler...") */
+.planner-page p:contains("espaço calmo"),
+.planner-page h3 + p,
+div:has(> span:contains("SONHO MAIS PERTO")) ~ p {
+  color: #FFC2D1 !important; /* Rosa chá suave e perfeitamente visível */
   font-weight: 600 !important;
 }
 
-/* Destaca o valor em dinheiro principal (Ex: R$ 1.680,00) com uma cor bem viva */
-[style*="background-color"][style*="4a3728"] strong,
-.planner-page div[style*="gradient"] strong {
-  color: #FFF4BD !important; /* Amarelo manteiga brilhante para o dinheiro se destacar no fundo escuro */
+/* 3. Valor principal Guardado (Ex: R$ 1.680,00) */
+.planner-page strong:contains("R$"),
+.planner-page div[style*="flex"] strong {
+  color: #FFF4BD !important; /* Amarelo manteiga brilhante para o dinheiro "acender" */
 }
 
-/* Melhora a visibilidade do botão de ação ("Guardar um pouquinho") */
-[style*="background-color"][style*="4a3728"] [role="button"],
-[style*="background-color"][style*="4a3728"] button {
+/* 4. Frase ao lado da xícara ("Seu sonho está ganhando forma") */
+.planner-page span:contains("ganhando forma"),
+.planner-page div:has(> svg) + span,
+.planner-page div:has(> img) + span {
   color: #FFF5F7 !important;
-  border-color: #FFF5F7 !important;
+  opacity: 0.9 !important;
 }

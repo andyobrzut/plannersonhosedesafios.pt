@@ -418,3 +418,39 @@
 .planner-card [class*="checked"] {
   font-size: 1.1rem !important;
 }
+/* =============================================================
+   7. AJUSTE EXCLUSIVO: VALORES DOS SONHOS (NEGRITO E METAS)
+   ============================================================= */
+
+/* Aumenta o valor atual guardado (Ex: R$ 4.350,00) */
+.planner-card font,
+.planner-card strong,
+[class*="dream"] strong,
+.planner-card [style*="font-size"] strong,
+.planner-card h3 + div,
+.planner-card h2 + div {
+  font-size: 1.35rem !important; /* Deixa o valor guardado bem evidente */
+  font-weight: 800 !important;    /* Força um negrito bem marcante */
+  color: #594A4E !important;      /* Marrom cacau nítido */
+}
+
+/* Corrige e clareia os números apagadinhos da meta total (Ex: de R$ 12.000,00) */
+.planner-card small,
+.planner-card span[style*="opacity"],
+.planner-card [class*="meta"],
+.planner-card text,
+[style*="opacity: 0.5"],
+[style*="opacity:0.5"] {
+  font-size: 0.95rem !important;  /* Aumenta o tamanho para ficar confortável */
+  font-weight: 700 !important;    /* Deixa a fonte mais gordinha */
+  color: #8B6347 !important;      /* Substitui o cinza apagado por um marrom médio legível */
+  opacity: 1 !important;          /* Remove o efeito transparente/apagado */
+}
+
+/* Garante que o texto das datas no rodapé acompanhe o ganho de leitura */
+.planner-card calendar,
+.planner-card [style*="justify-content: space-between"] span,
+.planner-card [style*="space-between"] div {
+  font-size: 0.9rem !important;
+  font-weight: 600 !important;
+}

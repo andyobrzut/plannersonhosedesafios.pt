@@ -281,21 +281,17 @@
 }
 
 .tab-btn {
+  .tab-btn {
   font-family: 'Nunito', sans-serif;
-  font-size: 0.85rem; 
-  font-weight: 700;
-  padding: 0.6rem 0.8rem;
-  width: 110px;
-  border-radius: 0 8px 8px 0;
-  border: 0;
-  color: #302848;
-  background: #FFFFFF;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  opacity: 0.85;
-  box-shadow: 0 2px 7px rgba(54, 45, 84, 0.08);
-  transition: all 0.2s ease;
+  font-size: 1rem !important;      /* Aumentado para 1rem (aprox. 16px) */
+  font-weight: 700 !important;     /* Deixa a escrita mais marcante */
+  padding: 0.75rem 1.2rem !important; /* Mais espaçamento interno para encorpar o botão */
+  color: #594A4E !important;
+  letter-spacing: 0.01em;
+}
+
+.tab-btn.active {
+  font-weight: 800 !important;     /* Destaca ainda mais a aba ativa */
 }
 
 .tab-btn:hover {

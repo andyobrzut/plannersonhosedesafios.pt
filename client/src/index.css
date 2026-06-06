@@ -1043,16 +1043,35 @@
     opacity: 0.025;
   }
 }
-/* Aumentar as legendas pequenas abaixo dos números */
-.planner-card p, 
-.history-message,
-.history-item p,
-.history-item span {
-  font-size: 1.1rem !important; /* Estava muito pequeno, agora vai ficar legível */
-  font-weight: 600; /* Deixa um pouco mais grosso para facilitar a leitura */
+/* AJUSTE DEFINITIVO PARA TEXTOS PEQUENOS */
+
+/* 1. Aumenta todas as tags <small> do site */
+small {
+  font-size: 0.95rem !important;
+  opacity: 0.9 !important;
+  display: inline-block;
+  margin-top: 4px;
 }
 
-/* Ajuste específico para as frases embaixo dos cards de estatísticas */
-.planner-card span {
-  font-size: 1rem !important;
+/* 2. Ajusta especificamente os textos dos cards de estatísticas (KPIs) */
+.dream-kpis article p {
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+}
+
+.dream-kpis article strong {
+  font-size: 1.5rem !important;
+}
+
+/* 3. Ajusta os textos de apoio (como o "cada um com seu próprio caminho") */
+.dream-kpis article small,
+.mini-challenge small,
+.spotlight-values span {
+  font-size: 0.9rem !important;
+  color: inherit !important;
+}
+
+/* 4. Ajusta a descrição abaixo do título principal */
+.dream-brand p {
+  font-size: 1.1rem !important;
 }

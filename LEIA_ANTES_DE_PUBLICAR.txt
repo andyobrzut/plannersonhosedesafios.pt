@@ -1,0 +1,12 @@
+Versão Português corrigida para publicação.
+
+Correções aplicadas:
+- Rotas ajustadas para arquivos existentes _fixed.
+- Campos principais convertidos para localStorage quando necessário.
+- Checkboxes/listas mantêm dados no navegador.
+
+Para testar antes de vender/publicar:
+1. npm install
+2. npm run build
+3. npm run preview
+4. Preencher campos, sair/recarregar e confirmar persistência.

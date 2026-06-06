@@ -1,0 +1,156 @@
+/* Cozy Coffee theme overrides */
+:root {
+  --coffee-ink: #5a3828;
+  --coffee-muted: #8b6853;
+  --coffee-caramel: #c88a58;
+  --coffee-caramel-dark: #a9673f;
+  --coffee-latte: #e8d1b5;
+  --coffee-cream: #fff8ed;
+  --coffee-paper: #fffdf8;
+  --coffee-rose: #dfa69a;
+  --coffee-sage: #a9b79f;
+  --background: #fff8ed;
+  --foreground: #5a3828;
+  --card: #fffdf8;
+  --card-foreground: #5a3828;
+  --primary: #c88a58;
+  --primary-foreground: #ffffff;
+  --secondary: #a9b79f;
+  --secondary-foreground: #3f5140;
+  --muted: #f3e7d6;
+  --muted-foreground: #8b6853;
+  --accent: #dfa69a;
+  --accent-foreground: #633f35;
+  --border: #e5cfb7;
+  --input: #fffdf8;
+  --ring: #c88a58;
+}
+
+.planner-page {
+  color: var(--coffee-ink);
+  background:
+    radial-gradient(circle at 8% 10%, rgba(223, 166, 154, 0.14), transparent 22rem),
+    radial-gradient(circle at 92% 18%, rgba(169, 183, 159, 0.16), transparent 24rem),
+    var(--coffee-cream) !important;
+}
+
+.planner-page::before {
+  background-image: url("/assets/coffee/cozy-coffee-banner.png") !important;
+  background-size: 680px auto;
+  opacity: 0.085;
+  filter: sepia(0.18) saturate(0.72);
+}
+
+.planner-page > .tab-sidebar + div {
+  background: #f3e4d0 !important;
+  border-bottom-color: #c99b73 !important;
+}
+
+.planner-page > .tab-sidebar + div h1,
+.planner-page > .tab-sidebar + div p,
+.section-title,
+.history-item h3 {
+  color: var(--coffee-ink) !important;
+}
+
+.planner-page > .tab-sidebar + div img {
+  content: url("/assets/coffee/cozy-coffee-banner.png");
+  border-color: #fffaf1;
+  box-shadow: 0 4px 12px rgba(90, 56, 40, 0.18);
+}
+
+.cosmic-mark {
+  background: var(--coffee-caramel);
+  color: #fff8ed;
+  border-color: #fffdf8;
+  box-shadow: 0 8px 20px rgba(90, 56, 40, 0.2);
+}
+
+.planner-card {
+  background: var(--coffee-paper) !important;
+  border-color: var(--coffee-latte) !important;
+  box-shadow: 0 5px 18px rgba(90, 56, 40, 0.1) !important;
+}
+
+.planner-card:hover {
+  box-shadow: 0 8px 24px rgba(90, 56, 40, 0.16) !important;
+}
+
+.planner-page input,
+.planner-page textarea,
+.planner-page select {
+  border-color: var(--coffee-latte) !important;
+  background: var(--coffee-paper) !important;
+  color: var(--coffee-ink) !important;
+}
+
+.planner-page input:focus,
+.planner-page textarea:focus,
+.planner-page select:focus {
+  border-color: var(--coffee-caramel) !important;
+  box-shadow: 0 0 0 3px rgba(200, 138, 88, 0.18);
+}
+
+.field-label,
+.planner-page th,
+.history-message,
+.history-item p,
+.history-item span,
+.history-empty span {
+  color: var(--coffee-muted) !important;
+}
+
+.nav-btn {
+  background: var(--coffee-caramel) !important;
+  border-color: var(--coffee-caramel) !important;
+}
+
+.nav-btn:hover {
+  background: var(--coffee-caramel-dark) !important;
+  border-color: var(--coffee-caramel-dark) !important;
+}
+
+.nav-btn-outline {
+  background: var(--coffee-paper) !important;
+  color: var(--coffee-ink) !important;
+  border-color: var(--coffee-caramel) !important;
+}
+
+.nav-btn-outline:hover {
+  background: #f3e4d0 !important;
+  color: var(--coffee-ink) !important;
+}
+
+.progress-bar {
+  background: #ead8c2;
+}
+
+.progress-fill,
+.habit-check.checked {
+  background: var(--coffee-caramel);
+  border-color: var(--coffee-caramel);
+}
+
+.history-heading span {
+  background: var(--coffee-caramel);
+}
+
+.history-delete {
+  border-color: var(--coffee-rose);
+  color: #a5564d;
+}
+
+@media (max-width: 720px) {
+  .tab-sidebar {
+    background: #fffaf1;
+    border-top-color: var(--coffee-latte);
+  }
+
+  .cosmic-home img[src="/assets/coffee/cozy-coffee-banner.png"] {
+    display: block;
+    min-height: 180px;
+    height: 180px !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+}

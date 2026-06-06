@@ -1,0 +1,1044 @@
+/* =============================================================
+   PLANNER DIGITAL GATINHOS KAWAII
+   Design: Kawaii japonês contemporâneo — "Gatinho no Onsen"
+   Paleta: Creme papel, Caramelo gatinho, Verde sálvia, Rosa chá,
+           Azul lagoa, Amarelo manteiga, Marrom cacau
+   Tipografia: Nunito (ExtraBold títulos, Regular corpo)
+   ============================================================= */
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Paleta Gatinho */
+  --gatinho-creme: #FFF5F7;
+  --gatinho-caramelo: #FF8BA7;
+  --gatinho-cacau: #594A4E;
+  --gatinho-verde: #C3F0CA;
+  --gatinho-rosa: #FFC2D1;
+  --gatinho-azul: #BDE0FE;
+  --gatinho-amarelo: #FFF4BD;
+  --gatinho-verde-escuro: #A8E6B3;
+  --gatinho-rosa-escuro: #FF9AA2;
+  --gatinho-azul-escuro: #A2D2FF;
+}
+
+/* Cosmic Kitty preview theme */
+:root {
+  --background: #f8f6ff;
+  --foreground: #332d4f;
+  --card: #ffffff;
+  --card-foreground: #332d4f;
+  --primary: #6f5aa8;
+  --primary-foreground: #ffffff;
+  --secondary: #84d6b5;
+  --secondary-foreground: #244b42;
+  --muted: #eee9fa;
+  --muted-foreground: #756d91;
+  --accent: #ff9db2;
+  --accent-foreground: #643644;
+  --border: #d8d0eb;
+  --input: #f5f2fc;
+  --ring: #6f5aa8;
+}
+
+.planner-page {
+  background: #f8f6ff;
+  padding-left: 116px;
+}
+
+.planner-card {
+  background: #ffffff;
+  border-color: #d8d0eb;
+  border-radius: 8px;
+  box-shadow: 0 5px 18px rgba(72, 59, 112, 0.1);
+}
+
+.planner-card:hover {
+  box-shadow: 0 9px 26px rgba(72, 59, 112, 0.17);
+}
+
+.section-title {
+  color: #3c315f;
+  letter-spacing: 0;
+}
+
+.tab-sidebar {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 100;
+  width: 108px;
+}
+
+.tab-btn {
+  writing-mode: horizontal-tb;
+  transform: none;
+  min-height: 42px;
+  width: 98px;
+  padding: 0.35rem 0.55rem;
+  border-radius: 0 8px 8px 0;
+  border: 0;
+  color: #302848;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  opacity: 0.78;
+  box-shadow: 0 2px 7px rgba(54, 45, 84, 0.1);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.tab-btn > span:last-child {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tab-btn:hover {
+  filter: brightness(1.03);
+  transform: translateX(4px);
+  opacity: 1;
+}
+
+.tab-btn.active {
+  width: 108px;
+  opacity: 1;
+  border: 2px solid #ffffff;
+  box-shadow: 0 4px 13px rgba(54, 45, 84, 0.2);
+}
+
+.tab-icon {
+  width: 1.1rem;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.cosmic-mark {
+  width: 108px;
+  height: 108px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #3c315f;
+  color: #f7c948;
+  border: 8px solid #ffffff;
+  box-shadow: 0 8px 20px rgba(60, 49, 95, 0.18);
+  font-size: 4rem;
+}
+
+@media (max-width: 720px) {
+  .planner-page {
+    padding-left: 0;
+    padding-bottom: 68px;
+  }
+
+  .tab-sidebar {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    transform: none;
+    flex-direction: row;
+    overflow-x: auto;
+    background: #ffffff;
+    padding: 6px;
+    border-top: 1px solid #d8d0eb;
+  }
+
+  .tab-btn,
+  .tab-btn.active {
+    min-width: 72px;
+    width: 72px;
+    border-radius: 8px;
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+/* Final sidebar and wallpaper refinements */
+@media (min-width: 721px) {
+  .planner-page {
+    padding-left: 122px;
+  }
+
+  .tab-sidebar {
+    width: 116px;
+  }
+
+  .tab-btn,
+  .tab-btn.active {
+    width: 110px;
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+    overflow: visible;
+  }
+
+  .tab-btn.active {
+    width: 116px;
+  }
+
+  .tab-btn > span:last-child {
+    overflow: visible;
+    text-overflow: clip;
+    white-space: nowrap;
+  }
+}
+
+.planner-page::before {
+  opacity: 0.035;
+}
+
+@media (max-width: 720px) {
+  .planner-page::before {
+    opacity: 0.025;
+  }
+}
+
+.history-content {
+  width: min(1050px, calc(100% - 3rem));
+  margin: 1.5rem auto 3rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.history-save-card {
+  padding: 1.25rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: end;
+}
+
+.history-save-card input {
+  width: 100%;
+  margin-top: 0.4rem;
+  padding: 0.7rem 0.85rem;
+  font: 700 0.9rem 'Nunito', sans-serif;
+}
+
+.history-actions,
+.history-item-actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.history-message {
+  margin-top: 0.5rem;
+  color: #6f638f;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.history-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.8rem;
+}
+
+.history-heading h2 {
+  font-size: 1.2rem;
+}
+
+.history-heading span {
+  min-width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #b39ddb;
+  color: #fff;
+  font-weight: 900;
+}
+
+.history-list {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.history-item {
+  padding: 1rem 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.history-item h3 {
+  color: #3c315f;
+  font-weight: 900;
+}
+
+.history-item p,
+.history-item span,
+.history-empty span {
+  color: #6f638f;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.history-delete {
+  min-height: 40px;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid #ff9db2;
+  border-radius: 8px;
+  background: #fff;
+  color: #c9546e;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.history-empty {
+  padding: 2rem;
+  display: grid;
+  gap: 0.3rem;
+  text-align: center;
+}
+
+@media (max-width: 720px) {
+  .history-content {
+    width: calc(100% - 1.5rem);
+    margin-top: 1rem;
+  }
+
+  .history-save-card {
+    grid-template-columns: 1fr;
+  }
+
+  .history-actions .nav-btn,
+  .history-item-actions,
+  .history-item-actions .nav-btn,
+  .history-delete {
+    width: 100%;
+  }
+
+  .history-item {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
+
+/* Cosmic Kitty complete theme */
+:root {
+  --cosmic-ink: #3c315f;
+  --cosmic-muted: #6f638f;
+  --cosmic-lavender: #b39ddb;
+  --cosmic-lavender-soft: #eee9fb;
+  --cosmic-pink: #ff9db2;
+  --cosmic-coral: #ff7a8a;
+  --cosmic-mint: #84d6b5;
+  --cosmic-sky: #77c9d4;
+  --cosmic-gold: #f7c948;
+  --cosmic-paper: #fbfaff;
+}
+
+.planner-page {
+  color: var(--cosmic-ink);
+  background:
+    radial-gradient(circle at 8% 10%, rgba(255, 157, 178, 0.12), transparent 22rem),
+    radial-gradient(circle at 92% 18%, rgba(119, 201, 212, 0.13), transparent 24rem),
+    var(--cosmic-paper) !important;
+  overflow-x: hidden;
+  isolation: isolate;
+}
+
+.planner-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("/assets/cosmic/cosmic-kitty-banner.png");
+  background-position: center;
+  background-size: 760px auto;
+  background-repeat: repeat;
+  opacity: 0.055;
+  filter: saturate(0.75);
+}
+
+.planner-page > * {
+  position: relative;
+  z-index: 1;
+}
+
+.planner-page > .tab-sidebar + div {
+  background: var(--cosmic-lavender-soft) !important;
+  border-bottom-color: var(--cosmic-lavender) !important;
+}
+
+.planner-page > .tab-sidebar + div > div {
+  min-height: 88px;
+  gap: 1rem;
+}
+
+.planner-page > .tab-sidebar + div img {
+  width: 76px !important;
+  height: 64px !important;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(60, 49, 95, 0.16);
+  object-fit: cover !important;
+  object-position: 49% 53%;
+}
+
+.planner-page > .tab-sidebar + div h1,
+.planner-page > .tab-sidebar + div p {
+  color: var(--cosmic-ink) !important;
+}
+
+.planner-card {
+  border: 1px solid #d8d0eb !important;
+  box-shadow: 0 5px 18px rgba(72, 59, 112, 0.1) !important;
+}
+
+.planner-card:hover {
+  box-shadow: 0 8px 24px rgba(72, 59, 112, 0.14) !important;
+  transform: translateY(-1px);
+}
+
+.planner-page input,
+.planner-page textarea,
+.planner-page select {
+  max-width: 100%;
+  border-color: #d8d0eb !important;
+  border-radius: 8px !important;
+  background: #fff !important;
+  color: var(--cosmic-ink) !important;
+}
+
+.planner-page input:focus,
+.planner-page textarea:focus,
+.planner-page select:focus {
+  border-color: var(--cosmic-lavender) !important;
+  box-shadow: 0 0 0 3px rgba(179, 157, 219, 0.2);
+}
+
+.field-label,
+.planner-page th {
+  color: var(--cosmic-muted) !important;
+  letter-spacing: 0;
+}
+
+.nav-btn {
+  min-height: 40px;
+  max-width: 100%;
+  padding: 0.55rem 0.95rem !important;
+  border-radius: 8px !important;
+  background: var(--cosmic-coral) !important;
+  color: #fff !important;
+  border: 2px solid var(--cosmic-coral) !important;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+  white-space: normal !important;
+}
+
+.nav-btn:hover {
+  background: #e96879 !important;
+  border-color: #e96879 !important;
+  transform: translateY(-1px);
+}
+
+.nav-btn-outline {
+  background: #fff !important;
+  color: var(--cosmic-ink) !important;
+  border-color: var(--cosmic-lavender) !important;
+}
+
+.nav-btn-outline:hover {
+  background: var(--cosmic-lavender-soft) !important;
+  color: var(--cosmic-ink) !important;
+}
+
+.progress-bar {
+  background: var(--cosmic-lavender-soft);
+}
+
+.progress-fill,
+.habit-check.checked {
+  background: var(--cosmic-coral);
+  border-color: var(--cosmic-coral);
+}
+
+.planner-page table {
+  color: var(--cosmic-ink);
+}
+
+.planner-page td {
+  color: var(--cosmic-ink) !important;
+}
+
+@media (max-width: 900px) {
+  .planner-page {
+    padding-left: 112px;
+  }
+
+  .planner-page > .tab-sidebar + div > div {
+    align-items: flex-start !important;
+  }
+}
+
+@media (max-width: 720px) {
+  .planner-page {
+    padding-left: 0;
+  }
+
+  .planner-page > .tab-sidebar + div {
+    padding: 0.85rem 1rem !important;
+  }
+
+  .planner-page > .tab-sidebar + div > div {
+    min-height: 0;
+    flex-wrap: wrap;
+  }
+
+  .planner-page > .tab-sidebar + div > div > div:first-child {
+    min-width: 0;
+    flex: 1 1 100%;
+  }
+
+  .planner-page > .tab-sidebar + div img {
+    width: 64px !important;
+    height: 56px !important;
+  }
+
+  .planner-page > .tab-sidebar + div h1 {
+    font-size: 1.2rem !important;
+    line-height: 1.15;
+  }
+
+  .planner-page > .tab-sidebar + div p {
+    font-size: 0.78rem !important;
+    max-width: 250px;
+    line-height: 1.25;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .planner-page > div:not(.tab-sidebar) {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .planner-card {
+    padding: 0.85rem !important;
+  }
+
+  .planner-page button {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .planner-page table {
+    min-width: 720px;
+  }
+
+  .planner-page [style*="justify-content: space-between"] {
+    gap: 0.65rem;
+    flex-wrap: wrap;
+  }
+
+  .planner-page [style*="grid-template-columns"] {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .planner-card [style*="align-items: flex-end"] {
+    min-width: 0 !important;
+    width: 100%;
+    flex: 1 1 100% !important;
+    flex-wrap: wrap;
+  }
+
+  .planner-card [style*="align-items: flex-end"] > div {
+    min-width: 0;
+    flex: 1 1 100% !important;
+  }
+
+  .planner-card [style*="align-items: flex-end"] > .nav-btn {
+    width: 100%;
+  }
+
+  .cosmic-home img[src="/assets/cosmic/cosmic-kitty-banner.png"] {
+    display: block;
+    min-height: 180px;
+    height: 180px !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+}
+
+:root {
+  --radius: 1.25rem;
+  --background: #FFF5F7;
+  --foreground: #594A4E;
+  --card: #FFFFFF;
+  --card-foreground: #594A4E;
+  --popover: #FFFFFF;
+  --popover-foreground: #594A4E;
+  --primary: #FF8BA7;
+  --primary-foreground: #FFFFFF;
+  --secondary: #C3F0CA;
+  --secondary-foreground: #4A6D4C;
+  --muted: #FFE5EC;
+  --muted-foreground: #A08088;
+  --accent: #FFC2D1;
+  --accent-foreground: #7A4A55;
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: #FFD1DC;
+  --input: #FFF0F3;
+  --ring: #FF8BA7;
+  --chart-1: #FF8BA7;
+  --chart-2: #C3F0CA;
+  --chart-3: #FFC2D1;
+  --chart-4: #BDE0FE;
+  --chart-5: #FFF4BD;
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #594A4E;
+  --sidebar-primary: #FF8BA7;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #FFE5EC;
+  --sidebar-accent-foreground: #594A4E;
+  --sidebar-border: #FFD1DC;
+  --sidebar-ring: #FF8BA7;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Nunito', sans-serif;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1280px;
+    }
+  }
+
+  /* Planner page styles */
+  .planner-page {
+    background: #FFF7EA;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  .planner-card {
+    background: #FFFBF3;
+    border: 2px solid #E8D5C0;
+    border-radius: 1.25rem;
+    box-shadow: 0 4px 16px rgba(169, 111, 69, 0.10);
+    transition: box-shadow 0.2s ease, transform 0.15s ease;
+  }
+
+  .planner-card:hover {
+    box-shadow: 0 8px 28px rgba(169, 111, 69, 0.18);
+    transform: translateY(-2px);
+  }
+
+  .tab-btn {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    padding: 0.75rem 0.35rem;
+    border-radius: 0.75rem 0 0 0.75rem;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    border: 2px solid transparent;
+    white-space: nowrap;
+  }
+
+  .tab-btn:hover {
+    filter: brightness(0.92);
+    transform: rotate(180deg) translateX(3px);
+  }
+
+  .tab-btn.active {
+    filter: brightness(0.88);
+    border-color: #5B3A29;
+  }
+
+  .dotted-line {
+    border-bottom: 1.5px dotted #D4B896;
+    margin: 0.5rem 0;
+  }
+
+  .ruled-line {
+    border-bottom: 1px solid #E8D5C0;
+    margin: 0.6rem 0;
+  }
+
+  .section-title {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    color: #5B3A29;
+    letter-spacing: -0.01em;
+  }
+
+  .field-label {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    color: #8B6347;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .washi-tape {
+    height: 18px;
+    border-radius: 3px;
+    opacity: 0.75;
+    transform: rotate(-1.5deg);
+    display: inline-block;
+  }
+
+  .nav-btn {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 0.82rem;
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    background: #A96F45;
+    color: #FFF7EA;
+    border: none;
+    cursor: pointer;
+    transition: background 0.18s ease, transform 0.12s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    text-decoration: none;
+  }
+
+  .nav-btn:hover {
+    background: #8B5A35;
+    transform: scale(1.04);
+  }
+
+  .nav-btn-outline {
+    background: transparent;
+    color: #A96F45;
+    border: 2px solid #A96F45;
+  }
+
+  .nav-btn-outline:hover {
+    background: #A96F45;
+    color: #FFF7EA;
+  }
+
+  .progress-bar {
+    height: 10px;
+    border-radius: 999px;
+    background: #E8D5C0;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #A96F45, #C4854A);
+    transition: width 0.4s ease;
+  }
+
+  .mood-btn {
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    border: 2px solid #E8D5C0;
+    background: #FFFBF3;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .mood-btn:hover, .mood-btn.selected {
+    border-color: #A96F45;
+    background: #F5EDE0;
+    transform: scale(1.15);
+  }
+
+  .star-rating {
+    color: #F7D98B;
+    font-size: 1.1rem;
+  }
+
+  .habit-check {
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 0.35rem;
+    border: 2px solid #D4B896;
+    background: #FFFBF3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    flex-shrink: 0;
+  }
+
+  .habit-check.checked {
+    background: #A96F45;
+    border-color: #A96F45;
+    color: white;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in {
+    animation: fadeIn 0.25s ease forwards;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
+  }
+
+  .float-anim {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Print / PDF styles */
+  @media print {
+    .no-print { display: none !important; }
+    .planner-page { min-height: auto; }
+    .tab-sidebar { display: none !important; }
+  }
+}
+
+/* Cosmic Kitty final overrides */
+.planner-page {
+  background: #f8f6ff;
+  padding-left: 94px;
+}
+
+.planner-card {
+  background: #ffffff;
+  border-color: #d8d0eb;
+  border-radius: 8px;
+  box-shadow: 0 5px 18px rgba(72, 59, 112, 0.1);
+}
+
+.section-title {
+  color: #3c315f;
+  letter-spacing: 0;
+}
+
+.tab-sidebar {
+  position: fixed;
+  left: 0;
+  right: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 100;
+  width: 86px;
+}
+
+.tab-btn {
+  writing-mode: horizontal-tb;
+  transform: none;
+  min-height: 42px;
+  width: 76px;
+  padding: 0.35rem 0.45rem;
+  border-radius: 0 8px 8px 0;
+  border: 0;
+  color: #302848;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  opacity: 0.78;
+  box-shadow: 0 2px 7px rgba(54, 45, 84, 0.1);
+}
+
+.tab-btn:hover {
+  filter: brightness(1.03);
+  transform: translateX(4px);
+  opacity: 1;
+}
+
+.tab-btn.active {
+  width: 86px;
+  opacity: 1;
+  border: 2px solid #ffffff;
+  box-shadow: 0 4px 13px rgba(54, 45, 84, 0.2);
+}
+
+@media (max-width: 720px) {
+  .planner-page {
+    padding-left: 0;
+    padding-bottom: 68px;
+  }
+
+  .tab-sidebar {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    transform: none;
+    flex-direction: row;
+    overflow-x: auto;
+    background: #ffffff;
+    padding: 6px;
+    border-top: 1px solid #d8d0eb;
+  }
+
+  .tab-btn,
+  .tab-btn.active {
+    min-width: 72px;
+    width: 72px;
+    border-radius: 8px;
+    flex-direction: column;
+    gap: 0;
+    overflow: visible;
+  }
+
+  .tab-btn > span:last-child {
+    overflow: visible;
+    text-overflow: clip;
+  }
+
+  .planner-page::before {
+    background-size: 520px auto;
+    opacity: 0.045;
+  }
+}
+
+/* Definitive sidebar sizing and subtle themed wallpaper */
+@media (min-width: 721px) {
+  .planner-page {
+    padding-left: 122px;
+  }
+
+  .tab-sidebar {
+    width: 116px;
+  }
+
+  .tab-btn,
+  .tab-btn.active {
+    width: 110px;
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+    overflow: visible;
+  }
+
+  .tab-btn.active {
+    width: 116px;
+  }
+
+  .tab-btn > span:last-child {
+    overflow: visible;
+    text-overflow: clip;
+    white-space: nowrap;
+  }
+}
+
+.planner-page::before {
+  opacity: 0.035;
+}
+
+@media (max-width: 720px) {
+  .planner-page::before {
+    opacity: 0.025;
+  }
+}

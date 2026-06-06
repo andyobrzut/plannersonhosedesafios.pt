@@ -1062,22 +1062,51 @@ small,
   opacity: 0.9 !important;
 }
 
-/* 3. Ajuste para os textos dentro dos cards e descrições */
+/* =============================================================
+   AJUSTE DE PADRÃO PROFISSIONAL - FONTE AMPLIADA E HARMÔNICA
+   ============================================================= */
+
+/* 1. Base do site levemente maior para conforto visual */
+:root {
+  font-size: 17px !important;
+}
+
+/* 2. Corrigindo o menu lateral (Índice) que estava minúsculo */
+.tab-btn {
+  font-size: 0.9rem !important; /* Aumentado de 0.72rem para 0.9rem */
+  padding: 0.6rem 0.8rem !important;
+  font-weight: 700 !important;
+}
+
+/* 3. Ajustando legendas e textos pequenos para ficarem legíveis */
+small, 
+.mini-challenge small, 
+.spotlight-values span,
+.hero-note span,
+.history-message,
+.history-item p,
+.history-item span {
+  font-size: 0.95rem !important; /* Tamanho ideal para leitura de apoio */
+  opacity: 1 !important;
+  color: inherit !important;
+}
+
+/* 4. Textos de descrição e parágrafos */
 .planner-card p,
 .spotlight-copy p,
-.dream-brand p {
-  font-size: 1.05rem !important; /* Texto do corpo levemente maior */
-  line-height: 1.5;
+.dream-brand p,
+.welcome-row p {
+  font-size: 1.05rem !important;
+  line-height: 1.6 !important;
 }
 
-/* 4. Ajuste para o menu lateral (Índice) não ficar minúsculo */
-.tab-btn {
-  font-size: 0.85rem !important;
-  padding: 0.5rem 0.7rem !important;
+/* 5. Títulos dos Cards para não ficarem desproporcionais */
+.section-title, h3 {
+  font-size: 1.25rem !important;
+  font-weight: 800 !important;
 }
 
-/* 5. Deixar os números e títulos com bom destaque */
-.dream-kpis strong,
-.spotlight-values strong {
-  font-size: 1.3rem !important;
+/* 6. Números principais (KPIs) */
+.dream-kpis strong {
+  font-size: 1.4rem !important;
 }

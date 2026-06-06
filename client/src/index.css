@@ -422,6 +422,10 @@
    7. AJUSTE EXCLUSIVO: VALORES DOS SONHOS (NEGRITO E METAS)
    ============================================================= */
 
+/* =============================================================
+   7. AJUSTE EXCLUSIVO: VALORES DOS SONHOS (NEGRITO E METAS)
+   ============================================================= */
+
 /* Aumenta o valor atual guardado (Ex: R$ 4.350,00) */
 .planner-card font,
 .planner-card strong,
@@ -429,28 +433,36 @@
 .planner-card [style*="font-size"] strong,
 .planner-card h3 + div,
 .planner-card h2 + div {
-  font-size: 1.35rem !important; /* Deixa o valor guardado bem evidente */
-  font-weight: 800 !important;    /* Força um negrito bem marcante */
-  color: #594A4E !important;      /* Marrom cacau nítido */
+  font-size: 1.4rem !important; /* Aumentado um tiquinho mais */
+  font-weight: 800 !important;    
+  color: #594A4E !important;      
 }
 
-/* Corrige e clareia os números apagadinhos da meta total (Ex: de R$ 12.000,00) */
+/* PEGA DE VEZ OS NÚMEROS APAGADINHOS (Ex: de R$ 12.000,00) */
 .planner-card small,
 .planner-card span[style*="opacity"],
 .planner-card [class*="meta"],
 .planner-card text,
 [style*="opacity: 0.5"],
-[style*="opacity:0.5"] {
-  font-size: 0.95rem !important;  /* Aumenta o tamanho para ficar confortável */
-  font-weight: 700 !important;    /* Deixa a fonte mais gordinha */
-  color: #8B6347 !important;      /* Substitui o cinza apagado por um marrom médio legível */
-  opacity: 1 !important;          /* Remove o efeito transparente/apagado */
+[style*="opacity:0.5"],
+.planner-card div[style*="font-size"] span:last-child,
+.planner-card h2 + div span:last-child {
+  font-size: 1rem !important;    /* Forçado para 1rem (tamanho de leitura excelente) */
+  font-weight: 700 !important;    /* Bem gordinho para dar contraste */
+  color: #8B6347 !important;      /* Marrom nítido, adeus cinza invisível */
+  opacity: 1 !important;          /* Força 100% de cor na tela */
 }
 
-/* Garante que o texto das datas no rodapé acompanhe o ganho de leitura */
-.planner-card calendar,
+/* PEGA DE VEZ AS DATAS NO RODAPÉ DOS CARDS (Ex: mai. de 2027, nov. de 2026) */
+.planner-card svg + span,
 .planner-card [style*="justify-content: space-between"] span,
-.planner-card [style*="space-between"] div {
-  font-size: 0.9rem !important;
-  font-weight: 600 !important;
+.planner-card [style*="space-between"] div,
+.planner-card [style*="align-items: center"] span,
+.planner-card span:has(svg),
+[style*="font-size: 0.75rem"],
+[style*="font-size:0.75rem"] {
+  font-size: 0.95rem !important; /* Subiu de tamanho para ficar super legível */
+  font-weight: 700 !important;   /* Deixa a data bem destacada */
+  color: #594A4E !important;     /* Cor escura do tema para dar contraste */
+  opacity: 1 !important;         /* Tira qualquer efeito apagado da data */
 }

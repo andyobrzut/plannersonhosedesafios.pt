@@ -466,3 +466,42 @@
   color: #594A4E !important;     /* Cor escura do tema para dar contraste */
   opacity: 1 !important;         /* Tira qualquer efeito apagado da data */
 }
+/* =============================================================
+   8. CORREÇÃO DE CONTRASTE: CARD DE DESTAQUE ESCURO
+   ============================================================= */
+
+/* Alvos para qualquer texto dentro do card com fundo marrom escuro */
+[style*="background-color"][style*="4a3728"] h1,
+[style*="background-color"][style*="4a3728"] h2,
+[style*="background-color"][style*="4a3728"] h3,
+[style*="background-color"][style*="4a3728"] p,
+[style*="background-color"][style*="4a3728"] span,
+[style*="background-color"][style*="4a3728"] strong,
+[style*="background-color"][style*="4a3728"] small,
+.planner-page div[style*="gradient"] h3,
+.planner-page div[style*="gradient"] p,
+.planner-page div[style*="gradient"] span,
+.planner-page div[style*="gradient"] strong {
+  color: #FFF5F7 !important; /* Força todo o texto a virar Creme Papel super legível */
+  opacity: 1 !important;     /* Garante que nada fique semi-transparente */
+}
+
+/* Deixa a descrição do sonho com um creme um pouco mais suave para elegância */
+[style*="background-color"][style*="4a3728"] p,
+.planner-page div[style*="gradient"] p {
+  color: #FFC2D1 !important; /* Rosa chá/creme suave para a descrição */
+  font-weight: 600 !important;
+}
+
+/* Destaca o valor em dinheiro principal (Ex: R$ 1.680,00) com uma cor bem viva */
+[style*="background-color"][style*="4a3728"] strong,
+.planner-page div[style*="gradient"] strong {
+  color: #FFF4BD !important; /* Amarelo manteiga brilhante para o dinheiro se destacar no fundo escuro */
+}
+
+/* Melhora a visibilidade do botão de ação ("Guardar um pouquinho") */
+[style*="background-color"][style*="4a3728"] [role="button"],
+[style*="background-color"][style*="4a3728"] button {
+  color: #FFF5F7 !important;
+  border-color: #FFF5F7 !important;
+}

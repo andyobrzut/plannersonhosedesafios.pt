@@ -165,8 +165,40 @@ export default function PlannerSonhos() {
             <article><span className="gold"><Award size={21} /></span><div><p>Nível de conquista</p><strong>{earned}%</strong><small>continue colecionando vitórias</small></div></article>
           </section>
           {closest && <section className="spotlight">
-            <div className="spotlight-copy"><span><Star size={14} /> SONHO MAIS PERTO DE ACONTECER</span><h3>{closest.title}</h3><p>{closest.why}</p><div className="spotlight-values"><strong>{money(closest.saved)}</strong><span>de {money(closest.target)}</span></div><Progress value={(closest.saved / closest.target) * 100} color={closest.color} /><button onClick={() => setDepositDream(closest)}>Guardar um pouquinho <ChevronRight size={16} /></button></div>
-            <div className="spotlight-art"><Coffee size={62} /><Sparkles size={24} /><span>{Math.round((closest.saved / closest.target) * 100)}%</span><p>Seu sonho está ganhando forma</p></div>
+            <div className="spotlight-copy">
+              <span style={{ color: "#fff0b8", textShadow: "0 1px 5px rgba(55,32,20,.45)" }}>
+                <Star size={14} /> SONHO MAIS PERTO DE ACONTECER
+              </span>
+              <h3 style={{ color: "#fff7ec", textShadow: "0 2px 8px rgba(55,32,20,.45)" }}>
+                {closest.title}
+              </h3>
+              <p style={{ color: "#ffe7d1", textShadow: "0 1px 4px rgba(55,32,20,.35)" }}>
+                {closest.why}
+              </p>
+              <div className="spotlight-values">
+                <strong style={{ color: "#fff7ec", textShadow: "0 2px 7px rgba(55,32,20,.45)" }}>
+                  {money(closest.saved)}
+                </strong>
+                <span style={{ color: "#f6d7bd" }}>de {money(closest.target)}</span>
+              </div>
+              <Progress value={(closest.saved / closest.target) * 100} color="#f4d6af" />
+              <button
+                style={{ color: "#fff0b8", textShadow: "0 1px 5px rgba(55,32,20,.45)" }}
+                onClick={() => setDepositDream(closest)}
+              >
+                Guardar um pouquinho <ChevronRight size={16} />
+              </button>
+            </div>
+            <div className="spotlight-art">
+              <Coffee size={62} color="#fff7ec" />
+              <Sparkles size={24} color="#fff0b8" />
+              <span style={{ color: "#fff7ec", textShadow: "0 2px 8px rgba(55,32,20,.45)" }}>
+                {Math.round((closest.saved / closest.target) * 100)}%
+              </span>
+              <p style={{ color: "#f6d7bd", textShadow: "0 1px 4px rgba(55,32,20,.35)" }}>
+                Seu sonho está ganhando forma
+              </p>
+            </div>
           </section>}
           <section className="two-columns"><article className="dream-panel"><PanelTitle icon={<Target size={18} />} title="Desafios em andamento" subtitle="Marque mais um passo hoje" action="Ver todos" onClick={() => setView("desafios")} />{challenges.slice(0, 3).map((item) => <div className="mini-challenge" key={item.id}><span style={{ color: item.color, background: `${item.color}20` }}><ChallengeIcon kind={item.kind} /></span><div><strong>{item.title}</strong><small>{item.completed.length} de {item.steps} etapas</small><Progress value={(item.completed.length / item.steps) * 100} color={item.color} /></div><b>{Math.round((item.completed.length / item.steps) * 100)}%</b></div>)}</article>
             <article className="dream-panel coffee-letter"><Coffee size={34} /><span>LEMBRETE DO DIA</span><h3>Seu sonho não precisa acontecer de uma vez.</h3><p>Guardar um valor pequeno, dizer não a uma compra ou revisar sua meta já conta como progresso.</p><button onClick={() => setView("cofrinhos")}>Abrir meus cofrinhos <ChevronRight size={16} /></button></article></section>

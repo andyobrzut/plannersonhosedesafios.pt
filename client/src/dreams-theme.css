@@ -44,16 +44,16 @@ button { cursor: pointer; }
 .dream-kpis p { color: var(--dream-muted); font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: .04em; }
 .dream-kpis strong { display: block; margin: 1px 0; font-size: 1.12rem; font-weight: 900; overflow: hidden; text-overflow: ellipsis; }
 .dream-kpis small { color: var(--dream-muted); font-size: 9px; }
-.spotlight { min-height: 270px; margin-top: 15px; overflow: hidden; display: grid; grid-template-columns: 1.35fr .65fr; border-radius: 17px; color: #fff; background: linear-gradient(135deg, #6f4932, #a66e47); box-shadow: 0 10px 28px rgba(90,56,40,.18); }
+.spotlight { min-height: 270px; margin-top: 15px; overflow: hidden; display: grid; grid-template-columns: 1.35fr .65fr; border-radius: 17px; color: #fffaf1 !important; background: linear-gradient(135deg, #6f4932, #a66e47); box-shadow: 0 10px 28px rgba(90,56,40,.18); }
 .spotlight-copy { align-self: center; padding: 28px; }
-.spotlight-copy > span { display: flex; align-items: center; gap: 5px; color: #ffe3a1; font-size: 9px; font-weight: 900; letter-spacing: .1em; }
-.spotlight-copy h3 { margin: 7px 0 4px; font-size: clamp(1.45rem, 3vw, 2.25rem); font-weight: 900; line-height: 1.1; }
-.spotlight-copy p { max-width: 610px; color: #f8eadd; font-size: 11px; line-height: 1.5; }
-.spotlight-values { margin: 16px 0 6px; display: flex; align-items: baseline; gap: 6px; }.spotlight-values strong { font-size: 1.2rem; }.spotlight-values span { color: #f2d9c7; font-size: 10px; }
+.spotlight-copy > span { display: flex; align-items: center; gap: 5px; color: #fff0b8 !important; font-size: 9px; font-weight: 900; letter-spacing: .1em; text-shadow: 0 1px 5px rgba(55,32,20,.45); }
+.spotlight-copy h3 { margin: 7px 0 4px; color: #fff7ec !important; font-size: clamp(1.45rem, 3vw, 2.25rem); font-weight: 900; line-height: 1.1; text-shadow: 0 2px 8px rgba(55,32,20,.45); }
+.spotlight-copy p { max-width: 610px; color: #ffe7d1 !important; font-size: 11px; line-height: 1.5; text-shadow: 0 1px 4px rgba(55,32,20,.35); }
+.spotlight-values { margin: 16px 0 6px; display: flex; align-items: baseline; gap: 6px; }.spotlight-values strong { color: #fff7ec !important; font-size: 1.2rem; text-shadow: 0 2px 7px rgba(55,32,20,.45); }.spotlight-values span { color: #f6d7bd !important; font-size: 10px; }
 .dream-progress { height: 7px; overflow: hidden; border-radius: 10px; background: #eee0cf; }.dream-progress span { height: 100%; display: block; border-radius: inherit; transition: width .3s ease; }
 .spotlight .dream-progress { max-width: 520px; background: rgba(255,255,255,.2); }.spotlight-copy button, .coffee-letter button { margin-top: 15px; padding: 0; display: flex; gap: 5px; align-items: center; border: 0; color: #ffe3a1; background: transparent; font-size: 10px; font-weight: 900; }
-.spotlight-art { position: relative; display: grid; place-content: center; justify-items: center; background: radial-gradient(circle, rgba(255,238,193,.2), transparent 60%); }
-.spotlight-art > svg:nth-child(2) { position: absolute; top: 25%; right: 25%; color: #ffe3a1; }.spotlight-art span { margin-top: 8px; font-size: 2rem; font-weight: 900; }.spotlight-art p { color: #f2d9c7; font-size: 10px; }
+.spotlight-art { position: relative; display: grid; place-content: center; justify-items: center; color: #fff7ec !important; background: radial-gradient(circle, rgba(255,238,193,.2), transparent 60%); }
+.spotlight-art > svg:nth-child(2) { position: absolute; top: 25%; right: 25%; color: #fff0b8; }.spotlight-art span { margin-top: 8px; color: #fff7ec !important; font-size: 2rem; font-weight: 900; text-shadow: 0 2px 8px rgba(55,32,20,.45); }.spotlight-art p { color: #f6d7bd !important; font-size: 10px; text-shadow: 0 1px 4px rgba(55,32,20,.35); }
 .two-columns { margin-top: 15px; display: grid; grid-template-columns: 1.5fr .75fr; gap: 15px; }
 .dream-panel { padding: 18px; border: 1px solid var(--dream-border); border-radius: 15px; background: rgba(255,253,248,.97); box-shadow: 0 5px 18px rgba(90,56,40,.07); }
 .panel-title { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 9px; margin-bottom: 13px; }.panel-title > span { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 10px; color: #a9663e; background: #f4e7d7; }.panel-title h3 { font-size: 13px; font-weight: 900; }.panel-title p { color: var(--dream-muted); font-size: 9px; }.panel-title button { display: flex; align-items: center; border: 0; color: var(--dream-caramel); background: transparent; font-size: 9px; font-weight: 900; }

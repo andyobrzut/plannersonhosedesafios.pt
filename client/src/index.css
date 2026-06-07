@@ -571,3 +571,170 @@
   font-weight: 800 !important;
   text-shadow: 0 1px 5px rgba(55, 32, 20, 0.45) !important;
 }
+
+/* =============================================================
+   11. PLANNER DOS SONHOS: PADRONIZACAO GERAL DE LEGIBILIDADE
+   ============================================================= */
+.dream-app {
+  font-size: 16px;
+}
+
+.dream-app .dream-brand span,
+.dream-app .hero-note strong,
+.dream-app .eyebrow,
+.dream-app .page-heading span,
+.dream-app .dream-kpis p,
+.dream-app .panel-title p,
+.dream-app .coffee-letter span,
+.dream-app .dream-card-top small,
+.dream-app .savings-summary small,
+.dream-app .jar-card > div:last-child > span,
+.dream-app .challenge-head small,
+.dream-app .level-card small,
+.dream-app .badge-card small,
+.dream-app .modal-title p,
+.dream-app .dream-form label,
+.dream-app .deposit-label {
+  font-size: 12px !important;
+  line-height: 1.35 !important;
+  font-weight: 800 !important;
+}
+
+.dream-app .hero-note span,
+.dream-app .dream-kpis small,
+.dream-app .mini-challenge small,
+.dream-app .dream-card > p,
+.dream-app .dream-money span,
+.dream-app .dream-card-foot span,
+.dream-app .dream-card-foot button,
+.dream-app .jar-card p,
+.dream-app .challenge-head p,
+.dream-app .challenge-foot,
+.dream-app .level-card p,
+.dream-app .badge-card p,
+.dream-app .coffee-letter p {
+  color: #7b5740 !important;
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+  font-weight: 700 !important;
+}
+
+.dream-app .dream-nav button,
+.dream-app .dream-btn,
+.dream-app .panel-title button,
+.dream-app .coffee-letter button {
+  font-size: 12px !important;
+  font-weight: 900 !important;
+}
+
+.dream-app .dream-kpis strong {
+  font-size: 1.32rem !important;
+}
+
+.dream-app .panel-title h3,
+.dream-app .dream-card-top h3,
+.dream-app .challenge-head h3,
+.dream-app .badge-card h3,
+.dream-app .mini-challenge strong {
+  color: #563829 !important;
+  font-size: 15px !important;
+  line-height: 1.25 !important;
+  font-weight: 900 !important;
+}
+
+.dream-app .coffee-letter h3,
+.dream-app .jar-card h3 {
+  color: #563829 !important;
+  font-size: 1.28rem !important;
+  line-height: 1.25 !important;
+}
+
+.dream-app .dream-money strong,
+.dream-app .challenge-foot strong {
+  color: #563829 !important;
+  font-size: 1.15rem !important;
+  font-weight: 900 !important;
+}
+
+.dream-app .spotlight-copy p,
+.dream-app .spotlight-art p {
+  color: #fff1df !important;
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+}
+
+.dream-app .spotlight-values strong {
+  font-size: 1.5rem !important;
+}
+
+.dream-app .spotlight-values span {
+  color: #ffe2c7 !important;
+  font-size: 13px !important;
+}
+
+.dream-app .spotlight-copy button {
+  font-size: 13px !important;
+}
+
+.dream-app .badge-card {
+  min-height: 108px;
+  gap: 14px;
+}
+
+.dream-app .badge-card > span {
+  width: 50px;
+  height: 50px;
+}
+
+.dream-app .badge-card small {
+  color: #9b6a48 !important;
+  letter-spacing: .08em;
+}
+
+.dream-app .badge-card.unlocked small {
+  color: #9b6a22 !important;
+}
+
+.dream-app .badge-card h3 {
+  margin: 2px 0;
+}
+
+.dream-app .badge-card:not(.unlocked) {
+  opacity: .78;
+}
+
+.dream-app .badge-card:not(.unlocked) h3,
+.dream-app .badge-card:not(.unlocked) p,
+.dream-app .badge-card:not(.unlocked) small {
+  color: #a88d78 !important;
+}
+
+.dream-app .step-grid button {
+  font-size: 11px !important;
+}
+
+.dream-app .dream-form input,
+.dream-app .dream-form select,
+.dream-app .dream-form textarea,
+.dream-app .deposit-label input {
+  font-size: 13px !important;
+}
+
+@media (max-width: 760px) {
+  .dream-app .dream-brand p,
+  .dream-app .welcome-row p,
+  .dream-app .page-heading p,
+  .dream-app .hero-note span,
+  .dream-app .dream-kpis small,
+  .dream-app .mini-challenge small,
+  .dream-app .dream-card > p,
+  .dream-app .jar-card p,
+  .dream-app .challenge-head p,
+  .dream-app .badge-card p {
+    font-size: 13px !important;
+  }
+
+  .dream-app .badge-card {
+    min-height: auto;
+  }
+}

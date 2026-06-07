@@ -71,3 +71,171 @@ button { cursor: pointer; }
 .dream-modal-backdrop { position: fixed; inset: 0; z-index: 50; padding: 20px; display: grid; place-items: center; background: rgba(65,41,28,.58); backdrop-filter: blur(5px); }.dream-modal { width: min(620px, 100%); padding: 22px; border-radius: 18px; background: #fffdf8; box-shadow: 0 25px 70px rgba(54,32,20,.32); }.dream-modal.small { width: min(460px, 100%); }.modal-title { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 10px; margin-bottom: 18px; }.modal-title > span { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 11px; color: #fff; background: var(--dream-caramel); }.modal-title h2 { font-size: 17px; font-weight: 900; }.modal-title p { color: var(--dream-muted); font-size: 9px; }.modal-title button { border: 0; color: var(--dream-muted); background: transparent; }.dream-form { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }.dream-form label, .deposit-label { display: grid; gap: 5px; color: var(--dream-muted); font-size: 9px; font-weight: 900; }.dream-form .wide { grid-column: 1 / -1; }.dream-form input, .dream-form select, .dream-form textarea, .deposit-label input { width: 100%; min-height: 42px; padding: 8px 10px; border: 1px solid var(--dream-border); border-radius: 9px; color: var(--dream-ink); background: #fff; font-size: 11px; outline: none; }.dream-form textarea { min-height: 78px; resize: vertical; }.dream-form input:focus, .dream-form select:focus, .dream-form textarea:focus, .deposit-label input:focus { border-color: var(--dream-caramel); box-shadow: 0 0 0 3px rgba(196,134,88,.14); }.color-options { min-height: 42px; display: flex; align-items: center; gap: 7px; }.color-options button { width: 26px; height: 26px; border: 3px solid #fff; border-radius: 50%; box-shadow: 0 0 0 1px var(--dream-border); }.color-options button.selected { box-shadow: 0 0 0 2px var(--dream-ink); }.modal-actions { margin-top: 18px; display: flex; justify-content: flex-end; gap: 7px; }.quick-values { margin-top: 10px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }.quick-values button { padding: 7px 3px; border: 1px solid var(--dream-border); border-radius: 8px; color: var(--dream-caramel-dark); background: #fff7eb; font-size: 9px; font-weight: 900; }
 @media (max-width: 1050px) { .dream-kpis { grid-template-columns: repeat(2, 1fr); }.dream-grid, .badge-grid { grid-template-columns: repeat(2, 1fr); }.challenge-grid { grid-template-columns: 1fr; }.step-grid.compact { grid-template-columns: repeat(13, 1fr); } }
 @media (max-width: 760px) { .dream-hero-inner { padding: 18px 14px; }.hero-note { display: none; }.dream-shell { padding: 0 11px 35px; }.dream-nav button { min-width: 125px; }.welcome-row, .page-heading { align-items: stretch; flex-direction: column; }.dream-kpis, .dream-grid, .two-columns, .jar-grid, .badge-grid { grid-template-columns: 1fr; }.spotlight { min-height: 390px; grid-template-columns: 1fr; }.spotlight-art { min-height: 150px; }.jar-card { grid-template-columns: 130px 1fr; gap: 12px; }.jar { width: 112px; height: 145px; }.savings-summary { grid-template-columns: 1fr; }.level-card { grid-template-columns: 1fr; justify-items: center; text-align: center; }.dream-form { grid-template-columns: 1fr; }.dream-form .wide { grid-column: auto; }.step-grid, .step-grid.compact { grid-template-columns: repeat(10, 1fr); }.dream-brand p { font-size: 11px; } }
+
+/* Readability pass: clearer type hierarchy across the whole product */
+.dream-app {
+  font-size: 16px;
+}
+
+.dream-brand span,
+.hero-note strong,
+.eyebrow,
+.page-heading span,
+.dream-kpis p,
+.spotlight-copy > span,
+.panel-title p,
+.coffee-letter span,
+.dream-card-top small,
+.savings-summary small,
+.jar-card > div:last-child > span,
+.challenge-head small,
+.level-card small,
+.badge-card small,
+.modal-title p,
+.dream-form label,
+.deposit-label {
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.hero-note span,
+.dream-kpis small,
+.mini-challenge small,
+.dream-card > p,
+.dream-money span,
+.dream-card-foot span,
+.dream-card-foot button,
+.jar-card p,
+.challenge-head p,
+.challenge-foot,
+.level-card p,
+.badge-card p,
+.coffee-letter p {
+  color: #7b5740;
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 700;
+}
+
+.dream-nav button,
+.dream-btn,
+.panel-title button,
+.spotlight-copy button,
+.coffee-letter button {
+  font-size: 12px;
+}
+
+.dream-kpis strong {
+  font-size: 1.32rem;
+}
+
+.panel-title h3,
+.dream-card-top h3,
+.challenge-head h3,
+.badge-card h3,
+.mini-challenge strong {
+  color: #563829;
+  font-size: 15px;
+  line-height: 1.25;
+  font-weight: 900;
+}
+
+.coffee-letter h3,
+.jar-card h3 {
+  color: #563829;
+  font-size: 1.28rem;
+}
+
+.dream-money strong,
+.challenge-foot strong {
+  color: #563829;
+  font-size: 1.15rem;
+  font-weight: 900;
+}
+
+.spotlight-copy p,
+.spotlight-art p {
+  color: #fff1df !important;
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+}
+
+.spotlight-values strong {
+  font-size: 1.5rem !important;
+}
+
+.spotlight-values span {
+  color: #ffe2c7 !important;
+  font-size: 13px !important;
+}
+
+.spotlight-copy button {
+  font-size: 13px;
+}
+
+.badge-card {
+  min-height: 108px;
+  gap: 14px;
+}
+
+.badge-card > span {
+  width: 50px;
+  height: 50px;
+}
+
+.badge-card small {
+  color: #9b6a48;
+  letter-spacing: .08em;
+}
+
+.badge-card.unlocked small {
+  color: #9b6a22;
+}
+
+.badge-card h3 {
+  margin: 2px 0;
+}
+
+.badge-card.unlocked {
+  border-color: #d8b78e;
+}
+
+.badge-card:not(.unlocked) {
+  opacity: .78;
+}
+
+.badge-card:not(.unlocked) h3,
+.badge-card:not(.unlocked) p,
+.badge-card:not(.unlocked) small {
+  color: #a88d78;
+}
+
+.step-grid button {
+  font-size: 10px;
+}
+
+.dream-form input,
+.dream-form select,
+.dream-form textarea,
+.deposit-label input {
+  font-size: 13px;
+}
+
+@media (max-width: 760px) {
+  .dream-brand p,
+  .welcome-row p,
+  .page-heading p,
+  .hero-note span,
+  .dream-kpis small,
+  .mini-challenge small,
+  .dream-card > p,
+  .jar-card p,
+  .challenge-head p,
+  .badge-card p {
+    font-size: 13px;
+  }
+
+  .badge-card {
+    min-height: auto;
+  }
+}

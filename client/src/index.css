@@ -69,7 +69,7 @@
     -moz-osx-font-smoothing: grayscale;
   }
   
-  /* Título principal da página (Ex: "Desafios financeiros", "Minha estante de conquistas") */
+  /* Título principal da página */
   h1, .hero-title {
     font-size: 2rem;
     font-weight: 900;
@@ -77,7 +77,7 @@
     letter-spacing: -0.02em;
   }
   
-  /* Títulos dos cards (Ex: "52 semanas", "Criadora de possibilidades") */
+  /* Títulos dos cards */
   h2, .section-title {
     font-size: 1.45rem;
     font-weight: 800;
@@ -93,13 +93,13 @@
 
   /* Parágrafos, instruções e FRASES DE APOIO ABAIXO dos títulos */
   p, .body-text, h1 + p, h2 + p {
-    font-size: 1.1rem !important;   /* Alinhado para leitura ideal de apoio */
+    font-size: 1.1rem !important;
     line-height: 1.6;
-    font-weight: 500 !important;    /* Peso Medium para encorpar a escrita */
+    font-weight: 500 !important;
     color: #7c6a5c !important;
   }
 
-  /* Textos de suporte internos dos cards (Ex: "Concluiu sua primeira etapa") */
+  /* Textos de suporte internos dos cards */
   small, 
   .field-label, 
   .mini-challenge small, 
@@ -112,14 +112,14 @@
   [class*="conquista"] p,
   [class*="bloqueada"] p,
   span[class*="conquistados"] {
-    font-size: 0.95rem !important;  /* Ampliado para nunca sumir no fundo */
-    font-weight: 600 !important;    /* Dá corpo às letrinhas */
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
     color: #8B6347 !important;
     letter-spacing: 0.02em;
     opacity: 1 !important;
   }
 
-  /* Rótulo superior pequeno (Ex: "META: R$ 1.378,00", "CELEBRE CADA PASSO") */
+  /* Rótulo superior pequeno */
   .field-label, 
   [class*="meta"] {
     font-size: 0.85rem !important;
@@ -278,12 +278,11 @@
   width: 116px;
 }
 
-/* Correção de chaves e ampliação aplicada com segurança */
 .tab-btn {
   font-family: 'Nunito', sans-serif;
-  font-size: 1rem !important;      /* Aumentado para dar destaque total */
-  font-weight: 700 !important;     /* Escrita marcante */
-  padding: 0.75rem 1.2rem !important; /* Botão encorpado */
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  padding: 0.75rem 1.2rem !important;
   color: #594A4E !important;
   background: #FFFFFF;
   border-radius: 0 8px 8px 0;
@@ -305,7 +304,7 @@
 .tab-btn.active {
   width: 116px;
   opacity: 1;
-  font-weight: 800 !important;     /* Destaca a aba ativa */
+  font-weight: 800 !important;
   border: 2px solid #A96F45;
   box-shadow: 0 4px 12px rgba(169, 111, 69, 0.15);
 }
@@ -369,7 +368,6 @@
     gap: 8px;
   }
 
-  /* Mantém equilibrado em telas pequenas para não estourar */
   .tab-btn, .tab-btn.active {
     min-width: 80px;
     width: auto;
@@ -418,27 +416,21 @@
 .planner-card [class*="checked"] {
   font-size: 1.1rem !important;
 }
-/* =============================================================
-   7. AJUSTE EXCLUSIVO: VALORES DOS SONHOS (NEGRITO E METAS)
-   ============================================================= */
 
 /* =============================================================
    7. AJUSTE EXCLUSIVO: VALORES DOS SONHOS (NEGRITO E METAS)
    ============================================================= */
-
-/* Aumenta o valor atual guardado (Ex: R$ 4.350,00) */
 .planner-card font,
 .planner-card strong,
 [class*="dream"] strong,
 .planner-card [style*="font-size"] strong,
 .planner-card h3 + div,
 .planner-card h2 + div {
-  font-size: 1.4rem !important; /* Aumentado um tiquinho mais */
+  font-size: 1.4rem !important; 
   font-weight: 800 !important;    
   color: #594A4E !important;      
 }
 
-/* PEGA DE VEZ OS NÚMEROS APAGADINHOS (Ex: de R$ 12.000,00) */
 .planner-card small,
 .planner-card span[style*="opacity"],
 .planner-card [class*="meta"],
@@ -447,13 +439,12 @@
 [style*="opacity:0.5"],
 .planner-card div[style*="font-size"] span:last-child,
 .planner-card h2 + div span:last-child {
-  font-size: 1rem !important;    /* Forçado para 1rem (tamanho de leitura excelente) */
-  font-weight: 700 !important;    /* Bem gordinho para dar contraste */
-  color: #8B6347 !important;      /* Marrom nítido, adeus cinza invisível */
-  opacity: 1 !important;          /* Força 100% de cor na tela */
+  font-size: 1rem !important;    
+  font-weight: 700 !important;    
+  color: #8B6347 !important;      
+  opacity: 1 !important;          
 }
 
-/* PEGA DE VEZ AS DATAS NO RODAPÉ DOS CARDS (Ex: mai. de 2027, nov. de 2026) */
 .planner-card svg + span,
 .planner-card [style*="justify-content: space-between"] span,
 .planner-card [style*="space-between"] div,
@@ -461,16 +452,15 @@
 .planner-card span:has(svg),
 [style*="font-size: 0.75rem"],
 [style*="font-size:0.75rem"] {
-  font-size: 0.95rem !important; /* Subiu de tamanho para ficar super legível */
-  font-weight: 700 !important;   /* Deixa a data bem destacada */
-  color: #594A4E !important;     /* Cor escura do tema para dar contraste */
-  opacity: 1 !important;         /* Tira qualquer efeito apagado da data */
+  font-size: 0.95rem !important; 
+  font-weight: 700 !important;   
+  color: #594A4E !important;     
+  opacity: 1 !important;         
 }
+
 /* =============================================================
    8. CORREÇÃO DEFINITIVA DE CONTRASTE: CARD DE DESTAQUE MARROM
    ============================================================= */
-
-/* Alvos diretos baseados na árvore de elementos do card de destaque */
 .planner-page div[style*="gradient"] h3,
 .planner-page div[style*="gradient"] p,
 .planner-page div[style*="gradient"] span,
@@ -479,43 +469,39 @@
 .planner-page div[style*="background"] p,
 .planner-page div[style*="background"] span,
 .planner-page div[style*="background"] strong,
-/* Fallback caso use classes do Tailwind para o fundo escuro */
 .bg-amber-950 h3, .bg-amber-950 p, .bg-amber-950 span, .bg-amber-950 strong,
-.bg-stone-800 h3, .bg-stone-800 p, .bg-stone-800 span, .bg-stone-800 strong,
-/* Seletor genérico matador para o bloco que contém o título "Meu cantinho de leitura" */
-div:has(> h3:contains("Meu cantinho")) *,
-div:has(> .text-3xl) * {
-  color: #FFF5F7 !important; /* Transforma quase tudo em Creme Papel super nítido */
+.bg-stone-800 h3, .bg-stone-800 p, .bg-stone-800 span, .bg-stone-800 strong {
+  color: #FFF5F7 !important; 
   opacity: 1 !important;
 }
 
-/* 1. Título do Sonho em Destaque ("Meu cantinho de leitura") */
+/* Título em Destaque */
 .planner-page h3 + div ~ h3, 
 .planner-page div[style*="flex"] h3,
-div:has(> span:contains("SONHO MAIS PERTO")) + h3,
 .planner-page h3:has(+ p:contains("espaço calmo")) {
- className="text-[#FFF5F7] font-black text-2xl" !important; 
+  color: #FFF5F7 !important; 
+  font-size: 1.6rem !important;
   font-weight: 900 !important;
 }
 
-/* 2. Descrição do Sonho ("Ter um espaço calmo para ler...") */
-.planner-page p:contains("espaço calmo"),
+/* Descrição do Sonho em Destaque */
 .planner-page h3 + p,
-div:has(> span:contains("SONHO MAIS PERTO")) ~ p {
-  color: #FFC2D1 !important; /* Rosa chá suave e perfeitamente visível */
+.planner-page p[class*="text-"] {
+  color: #FFC2D1 !important; 
   font-weight: 600 !important;
 }
 
-/* 3. Valor principal Guardado (Ex: R$ 1.680,00) */
-.planner-page strong:contains("R$"),
-.planner-page div[style*="flex"] strong {
-  className="text-[#FFF4BD] font-bold text-xl" !important; /* Amarelo manteiga brilhante para o dinheiro "acender" */
+/* Valor principal Guardado no Destaque */
+.planner-page div[style*="gradient"] strong,
+.planner-page div[style*="background"] strong {
+  color: #FFF4BD !important; 
+  font-size: 1.5rem !important;
 }
 
-/* 4. Frase ao lado da xícara ("Seu sonho está ganhando forma") */
-.planner-page span:contains("ganhando forma"),
-.planner-page div:has(> svg) + span,
-.planner-page div:has(> img) + span {
-  className="text-[#FFF5F7] text-sm opacity-90" !important;
-  opacity: 0.9 !important;
+/* Frase ao lado da xícara */
+.planner-page div[style*="gradient"] span[class*="opacity"],
+.planner-page div[style*="background"] span[class*="opacity"] {
+  color: #FFF5F7 !important;
+  font-size: 0.95rem !important;
+  opacity: 0.95 !important;
 }

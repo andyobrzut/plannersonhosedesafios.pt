@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+﻿import { useMemo, useState } from "react";
 import {
   Award,
   CalendarCheck,
@@ -126,22 +126,6 @@ function DreamModal({ onClose, onSave }: { onClose: () => void; onSave: (dream: 
   );
 }
 
-function DepositModal({ dream, onClose, onDeposit }: { dream: Dream; onClose: () => void; onDeposit: (amount: number, note: string) => void }) {
-  const [amount, setAmount] = useState(0);
-  const [note, setNote] = useState("");
-  return (
-    <div className="dream-modal-backdrop" onMouseDown={onClose}>
-      <form className="dream-modal small" onMouseDown={(event) => event.stopPropagation()} onSubmit={(event) => { event.preventDefault(); if (amount > 0) { onDeposit(amount, note); onClose(); } }}>
-        <div className="modal-title"><span><PiggyBank size={20} /></span><div><h2>Guardar para o sonho</h2><p>{dream.title}</p></div><button type="button" onClick={onClose}><X size={18} /></button></div>
-        <label className="deposit-label">Quanto você quer guardar agora?<input autoFocus type="number" min="1" step="0.01" value={amount || ""} onChange={(e) => setAmount(Number(e.target.value))} placeholder="R$ 0,00" /></label>
-        <label className="deposit-label">AnotaÃ§Ã£o opcional<input value={note} onChange={(e) => setNote(e.target.value)} placeholder="Ex.: DepÃ³sito do salÃ¡rio" /></label>
-        <div className="quick-values">{[25, 50, 100, 200].map((value) => <button type="button" key={value} onClick={() => setAmount(value)}>+ {money(value)}</button>)}</div>
-        <div className="modal-actions"><button type="button" className="dream-btn ghost" onClick={onClose}>Cancelar</button><button className="dream-btn primary">Confirmar depósito</button></div>
-      </form>
-    </div>
-  );
-}
-
 export default function PlannerSonhos() {
   const [view, setView] = useState<View>("inicio");
   const [dreams, setDreams] = useLocalStorage<Dream[]>("cozy_dreams_v1", initialDreams);
@@ -166,7 +150,7 @@ export default function PlannerSonhos() {
 
   const addDeposit = (dream: Dream, amount: number, note: string) => setDreams((items) => items.map((item) => {
     if (item.id !== dream.id) return item;
-    const deposits = [...getDeposits(item), { id: crypto.randomUUID(), amount, date: todayISO(), note: note.trim() || "DepÃ³sito" }];
+    const deposits = [...getDeposits(item), { id: crypto.randomUUID(), amount, date: todayISO(), note: note.trim() || "Depósito" }];
     return withDeposits(item, deposits);
   }));
   const updateDeposit = (dreamId: string, depositId: string, amount: number) => setDreams((items) => items.map((item) => {
@@ -357,8 +341,8 @@ function DepositHistory({
         <span><Edit3 size={18} /></span>
         <div>
           <small>AJUSTES DOS COFRINHOS</small>
-          <h3>HistÃ³rico de depÃ³sitos</h3>
-          <p>Corrija um valor digitado errado ou exclua apenas um depÃ³sito, sem apagar o sonho inteiro.</p>
+          <h3>Histórico de depósitos</h3>
+          <p>Corrija um valor digitado errado ou exclua apenas um depósito, sem apagar o sonho inteiro.</p>
         </div>
       </div>
       <div className="deposit-history-grid">
@@ -378,25 +362,25 @@ function DepositHistory({
                   {deposits.map((deposit) => (
                     <div className="deposit-row" key={deposit.id}>
                       <div>
-                        <strong>{deposit.note || "DepÃ³sito"}</strong>
+                        <strong>{deposit.note || "Depósito"}</strong>
                         <small>{deposit.date || "Valor anterior"}</small>
                       </div>
                       <input
-                        aria-label={`Editar depÃ³sito de ${dream.title}`}
+                        aria-label={`Editar depósito de ${dream.title}`}
                         type="number"
                         min="0"
                         step="0.01"
                         value={deposit.amount || ""}
                         onChange={(event) => onUpdate(dream.id, deposit.id, Number(event.target.value))}
                       />
-                      <button type="button" aria-label="Excluir depÃ³sito" onClick={() => onRemove(dream.id, deposit.id)}>
+                      <button type="button" aria-label="Excluir depósito" onClick={() => onRemove(dream.id, deposit.id)}>
                         <Trash2 size={15} />
                       </button>
                     </div>
                   ))}
                 </div>
               ) : (
-                <p className="deposit-empty">Nenhum depÃ³sito registrado ainda.</p>
+                <p className="deposit-empty">Nenhum depósito registrado ainda.</p>
               )}
             </article>
           );
@@ -420,3 +404,5 @@ function ChallengeIcon({ kind }: { kind: Challenge["kind"] }) {
 function Badge({ icon, title, text, unlocked }: { icon: React.ReactNode; title: string; text: string; unlocked: boolean }) {
   return <article className={`badge-card ${unlocked ? "unlocked" : ""}`}><span>{unlocked ? icon : <Lightbulb />}</span><div><small>{unlocked ? "CONQUISTA DESBLOQUEADA" : "AINDA BLOQUEADA"}</small><h3>{title}</h3><p>{text}</p></div>{unlocked && <Award size={20} />}</article>;
 }
+
+

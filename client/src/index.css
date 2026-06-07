@@ -505,3 +505,31 @@
   font-size: 0.95rem !important;
   opacity: 0.95 !important;
 }
+/* =============================================================
+   9. CORREÇÃO POR CLAREADO: ALTERAÇÃO DO FUNDO DO CARD DE DESTAQUE
+   ============================================================= */
+
+/* Força o fundo do card de destaque a ficar bege claro/café com leite */
+.planner-page div[style*="gradient"],
+.planner-page div[style*="background-color"],
+.planner-page div[style*="4a3728"],
+.bg-amber-950,
+.bg-stone-800 {
+  background: #F4EDE2 !important; /* Tom café com leite claro e aconchegante */
+  background-image: none !important; /* Remove qualquer gradiente escuro */
+  border: 2px solid #E8D5C0 !important; /* Borda combinando com os outros cards */
+}
+
+/* Garante que o texto dentro dele puxe a cor escura padrão para leitura */
+.planner-page div[style*="gradient"] *,
+.planner-page div[style*="background-color"] * {
+  color: #594A4E !important; /* Força tudo para o marrom cacau nítido */
+  opacity: 1 !important;
+}
+
+/* Deixa os valores em dinheiro ainda mais destacados dentro do fundo claro */
+.planner-page div[style*="gradient"] strong,
+.planner-page div[style*="background-color"] strong {
+  color: #4a3728 !important;
+  font-size: 1.4rem !important;
+}

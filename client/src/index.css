@@ -93,18 +93,15 @@
 
   /* Parágrafos, instruções e FRASES DE APOIO ABAIXO dos títulos */
   p, .body-text, h1 + p, h2 + p {
-    font-size: 1.1rem !important;
+    font-size: 1.1rem;
     line-height: 1.6;
-    font-weight: 500 !important;
-    color: #7c6a5c !important;
+    font-weight: 500;
+    color: #7c6a5c;
   }
 
   /* Textos de suporte internos dos cards */
   small, 
   .field-label, 
-  .mini-challenge small, 
-  .spotlight-values span,
-  .hero-note span,
   .history-message,
   .planner-card p,
   .planner-card span,
@@ -422,7 +419,6 @@
    ============================================================= */
 .planner-card font,
 .planner-card strong,
-[class*="dream"] strong,
 .planner-card [style*="font-size"] strong,
 .planner-card h3 + div,
 .planner-card h2 + div {

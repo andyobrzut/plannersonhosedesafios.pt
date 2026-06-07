@@ -533,3 +533,45 @@
   color: #4a3728 !important;
   font-size: 1.4rem !important;
 }
+
+/* =============================================================
+   10. PLANNER DOS SONHOS: CONTRASTE FINAL DO CARD DE DESTAQUE
+   ============================================================= */
+.dream-app .spotlight,
+.dream-app .spotlight * {
+  opacity: 1 !important;
+}
+
+.dream-app .spotlight .spotlight-copy > span,
+.dream-app .spotlight .spotlight-copy > span *,
+.dream-app .spotlight .spotlight-copy button,
+.dream-app .spotlight .spotlight-copy button * {
+  color: #fff0b8 !important;
+  text-shadow: 0 1px 5px rgba(55, 32, 20, 0.55) !important;
+}
+
+.dream-app .spotlight .spotlight-copy h3,
+.dream-app .spotlight .spotlight-art > span {
+  color: #fff8ee !important;
+  text-shadow: 0 2px 9px rgba(55, 32, 20, 0.58) !important;
+}
+
+.dream-app .spotlight .spotlight-copy p,
+.dream-app .spotlight .spotlight-art p {
+  color: #ffe8d3 !important;
+  font-weight: 800 !important;
+  text-shadow: 0 1px 5px rgba(55, 32, 20, 0.5) !important;
+}
+
+.dream-app .spotlight .spotlight-values strong {
+  color: #fff8ee !important;
+  font-size: 1.35rem !important;
+  font-weight: 900 !important;
+  text-shadow: 0 2px 9px rgba(55, 32, 20, 0.58) !important;
+}
+
+.dream-app .spotlight .spotlight-values span {
+  color: #f9d8bc !important;
+  font-weight: 800 !important;
+  text-shadow: 0 1px 5px rgba(55, 32, 20, 0.45) !important;
+}

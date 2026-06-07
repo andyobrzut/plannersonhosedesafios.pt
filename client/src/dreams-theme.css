@@ -239,3 +239,167 @@ button { cursor: pointer; }
     min-height: auto;
   }
 }
+
+.deposit-history {
+  margin-top: 16px;
+  padding: 18px;
+  border: 1px solid var(--dream-border);
+  border-radius: 16px;
+  background: rgba(255, 253, 248, 0.97);
+  box-shadow: 0 5px 18px rgba(90, 56, 40, 0.07);
+}
+
+.deposit-history-head {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.deposit-history-head > span {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  color: #a9663e;
+  background: #f4e7d7;
+}
+
+.deposit-history-head small {
+  color: var(--dream-caramel);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .1em;
+}
+
+.deposit-history-head h3 {
+  margin: 2px 0;
+  color: var(--dream-ink);
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
+.deposit-history-head p {
+  color: var(--dream-muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.deposit-history-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.deposit-history-card {
+  padding: 14px;
+  border: 1px solid #ead7c2;
+  border-radius: 14px;
+  background: #fffaf3;
+}
+
+.deposit-history-title {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 9px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.deposit-history-title > span {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+}
+
+.deposit-history-title h4 {
+  color: var(--dream-ink);
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.deposit-history-title small {
+  color: var(--dream-muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.deposit-list {
+  display: grid;
+  gap: 7px;
+}
+
+.deposit-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 122px auto;
+  gap: 8px;
+  align-items: center;
+  padding: 8px;
+  border: 1px solid #ead7c2;
+  border-radius: 10px;
+  background: #fffdf8;
+}
+
+.deposit-row strong,
+.deposit-row small {
+  display: block;
+}
+
+.deposit-row strong {
+  color: var(--dream-ink);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.deposit-row small {
+  color: var(--dream-muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.deposit-row input {
+  width: 100%;
+  min-height: 38px;
+  padding: 7px 8px;
+  border: 1px solid #dfc4a7;
+  border-radius: 8px;
+  color: var(--dream-ink);
+  background: #fff;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.deposit-row button {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 9px;
+  color: #b96662;
+  background: #faece9;
+}
+
+.deposit-empty {
+  color: var(--dream-muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+@media (max-width: 760px) {
+  .deposit-history-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .deposit-row {
+    grid-template-columns: 1fr;
+  }
+
+  .deposit-row button {
+    width: 100%;
+  }
+}

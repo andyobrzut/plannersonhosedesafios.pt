@@ -6,6 +6,7 @@ import {
   ChevronRight,
   CircleDollarSign,
   Coffee,
+  Edit3,
   Flag,
   Gift,
   Heart,
@@ -36,6 +37,14 @@ interface Dream {
   deadline: string;
   why: string;
   color: string;
+  deposits?: DreamDeposit[];
+}
+
+interface DreamDeposit {
+  id: string;
+  amount: number;
+  date: string;
+  note: string;
 }
 
 interface Challenge {
@@ -67,6 +76,18 @@ const initialChallenges: Challenge[] = [
 
 const categories: DreamCategory[] = ["Viagem", "Casa", "Compra", "Experiência", "Pessoal"];
 const colors = ["#c48658", "#9dad91", "#dfa69a", "#d5a74e", "#a88973"];
+const todayISO = () => new Date().toISOString().slice(0, 10);
+const getDeposits = (dream: Dream): DreamDeposit[] => {
+  if (dream.deposits) return dream.deposits;
+  if (dream.saved > 0) return [{ id: `initial-${dream.id}`, amount: dream.saved, date: "", note: "Saldo inicial" }];
+  return [];
+};
+const getSaved = (dream: Dream) => getDeposits(dream).reduce((sum, deposit) => sum + deposit.amount, 0);
+const withDeposits = (dream: Dream, deposits: DreamDeposit[]): Dream => ({
+  ...dream,
+  deposits,
+  saved: deposits.reduce((sum, deposit) => sum + deposit.amount, 0),
+});
 
 function Progress({ value, color }: { value: number; color: string }) {
   return <div className="dream-progress"><span style={{ width: `${Math.min(100, value)}%`, background: color }} /></div>;
@@ -105,13 +126,15 @@ function DreamModal({ onClose, onSave }: { onClose: () => void; onSave: (dream: 
   );
 }
 
-function DepositModal({ dream, onClose, onDeposit }: { dream: Dream; onClose: () => void; onDeposit: (amount: number) => void }) {
+function DepositModal({ dream, onClose, onDeposit }: { dream: Dream; onClose: () => void; onDeposit: (amount: number, note: string) => void }) {
   const [amount, setAmount] = useState(0);
+  const [note, setNote] = useState("");
   return (
     <div className="dream-modal-backdrop" onMouseDown={onClose}>
-      <form className="dream-modal small" onMouseDown={(event) => event.stopPropagation()} onSubmit={(event) => { event.preventDefault(); if (amount > 0) { onDeposit(amount); onClose(); } }}>
+      <form className="dream-modal small" onMouseDown={(event) => event.stopPropagation()} onSubmit={(event) => { event.preventDefault(); if (amount > 0) { onDeposit(amount, note); onClose(); } }}>
         <div className="modal-title"><span><PiggyBank size={20} /></span><div><h2>Guardar para o sonho</h2><p>{dream.title}</p></div><button type="button" onClick={onClose}><X size={18} /></button></div>
         <label className="deposit-label">Quanto você quer guardar agora?<input autoFocus type="number" min="1" step="0.01" value={amount || ""} onChange={(e) => setAmount(Number(e.target.value))} placeholder="R$ 0,00" /></label>
+        <label className="deposit-label">AnotaÃ§Ã£o opcional<input value={note} onChange={(e) => setNote(e.target.value)} placeholder="Ex.: DepÃ³sito do salÃ¡rio" /></label>
         <div className="quick-values">{[25, 50, 100, 200].map((value) => <button type="button" key={value} onClick={() => setAmount(value)}>+ {money(value)}</button>)}</div>
         <div className="modal-actions"><button type="button" className="dream-btn ghost" onClick={onClose}>Cancelar</button><button className="dream-btn primary">Confirmar depósito</button></div>
       </form>
@@ -127,11 +150,11 @@ export default function PlannerSonhos() {
   const [depositDream, setDepositDream] = useState<Dream | null>(null);
 
   const totalTarget = dreams.reduce((sum, dream) => sum + dream.target, 0);
-  const totalSaved = dreams.reduce((sum, dream) => sum + dream.saved, 0);
+  const totalSaved = dreams.reduce((sum, dream) => sum + getSaved(dream), 0);
   const completedSteps = challenges.reduce((sum, item) => sum + item.completed.length, 0);
   const totalSteps = challenges.reduce((sum, item) => sum + item.steps, 0);
   const earned = Math.round((completedSteps / totalSteps) * 100);
-  const closest = useMemo(() => [...dreams].sort((a, b) => (b.saved / b.target) - (a.saved / a.target))[0], [dreams]);
+  const closest = useMemo(() => [...dreams].sort((a, b) => (getSaved(b) / b.target) - (getSaved(a) / a.target))[0], [dreams]);
 
   const menu: { id: View; label: string; icon: typeof Home }[] = [
     { id: "inicio", label: "Meu caminho", icon: Home },
@@ -141,7 +164,20 @@ export default function PlannerSonhos() {
     { id: "conquistas", label: "Conquistas", icon: Trophy },
   ];
 
-  const deposit = (dream: Dream, amount: number) => setDreams((items) => items.map((item) => item.id === dream.id ? { ...item, saved: Math.min(item.target, item.saved + amount) } : item));
+  const addDeposit = (dream: Dream, amount: number, note: string) => setDreams((items) => items.map((item) => {
+    if (item.id !== dream.id) return item;
+    const deposits = [...getDeposits(item), { id: crypto.randomUUID(), amount, date: todayISO(), note: note.trim() || "DepÃ³sito" }];
+    return withDeposits(item, deposits);
+  }));
+  const updateDeposit = (dreamId: string, depositId: string, amount: number) => setDreams((items) => items.map((item) => {
+    if (item.id !== dreamId) return item;
+    const deposits = getDeposits(item).map((deposit) => deposit.id === depositId ? { ...deposit, amount: Math.max(0, amount) } : deposit);
+    return withDeposits(item, deposits);
+  }));
+  const removeDeposit = (dreamId: string, depositId: string) => setDreams((items) => items.map((item) => {
+    if (item.id !== dreamId) return item;
+    return withDeposits(item, getDeposits(item).filter((deposit) => deposit.id !== depositId));
+  }));
   const toggleStep = (challenge: Challenge, step: number) => setChallenges((items) => items.map((item) => item.id === challenge.id ? { ...item, completed: item.completed.includes(step) ? item.completed.filter((value) => value !== step) : [...item.completed, step] } : item));
 
   return (
@@ -177,11 +213,11 @@ export default function PlannerSonhos() {
               </p>
               <div className="spotlight-values">
                 <strong style={{ color: "#fff7ec", textShadow: "0 2px 7px rgba(55,32,20,.45)" }}>
-                  {money(closest.saved)}
+                  {money(getSaved(closest))}
                 </strong>
                 <span style={{ color: "#f6d7bd" }}>de {money(closest.target)}</span>
               </div>
-              <Progress value={(closest.saved / closest.target) * 100} color="#f4d6af" />
+              <Progress value={(getSaved(closest) / closest.target) * 100} color="#f4d6af" />
               <button
                 style={{ color: "#fff0b8", textShadow: "0 1px 5px rgba(55,32,20,.45)" }}
                 onClick={() => setDepositDream(closest)}
@@ -193,7 +229,7 @@ export default function PlannerSonhos() {
               <Coffee size={62} color="#fff7ec" />
               <Sparkles size={24} color="#fff0b8" />
               <span style={{ color: "#fff7ec", textShadow: "0 2px 8px rgba(55,32,20,.45)" }}>
-                {Math.round((closest.saved / closest.target) * 100)}%
+                {Math.round((getSaved(closest) / closest.target) * 100)}%
               </span>
               <p style={{ color: "#f6d7bd", textShadow: "0 1px 4px rgba(55,32,20,.35)" }}>
                 Seu sonho está ganhando forma
@@ -221,16 +257,81 @@ export default function PlannerSonhos() {
           <section className="level-card"><div className="level-ring" style={{ "--level": `${earned * 3.6}deg` } as React.CSSProperties}><span><Trophy size={28} /><b>{earned}%</b></span></div><div><small>NÍVEL ATUAL</small><h3>Criadora de possibilidades</h3><p>Você já concluiu {completedSteps} pequenos passos. Continue e novas conquistas serão desbloqueadas.</p><Progress value={earned} color="#d5a74e" /></div></section>
           <div className="badge-grid"><Badge icon={<Coffee />} title="Primeiro cafezinho" text="Concluiu sua primeira etapa" unlocked={completedSteps >= 1} /><Badge icon={<PiggyBank />} title="Cofrinho feliz" text="Guardou mais de R$ 1.000" unlocked={totalSaved >= 1000} /><Badge icon={<Target />} title="Foco delicado" text="Concluiu 25 etapas" unlocked={completedSteps >= 25} /><Badge icon={<Plane />} title="Sonho com destino" text="Criou uma meta de viagem" unlocked={dreams.some((item) => item.category === "Viagem")} /><Badge icon={<Star />} title="Metade do caminho" text="Alcançou 50% de um sonho" unlocked={dreams.some((item) => item.saved / item.target >= .5)} /><Badge icon={<Trophy />} title="Desafio completo" text="Finalizou um desafio inteiro" unlocked={challenges.some((item) => item.completed.length === item.steps)} /></div>
         </Page>}
+        {view === "cofrinhos" && <DepositHistory dreams={dreams} onUpdate={updateDeposit} onRemove={removeDeposit} />}
       </main>
 
       {dreamModal && <DreamModal onClose={() => setDreamModal(false)} onSave={(dream) => setDreams((items) => [dream, ...items])} />}
-      {depositDream && <DepositModal dream={depositDream} onClose={() => setDepositDream(null)} onDeposit={(amount) => deposit(depositDream, amount)} />}
+      {depositDream && <DepositModal dream={depositDream} onClose={() => setDepositDream(null)} onDeposit={(amount, note) => addDeposit(depositDream, amount, note)} />}
     </div>
   );
 }
 
 function Page({ title, eyebrow, description, action, children }: { title: string; eyebrow: string; description: string; action?: React.ReactNode; children: React.ReactNode }) {
   return <><section className="page-heading"><div><span>{eyebrow}</span><h2>{title}</h2><p>{description}</p></div>{action}</section>{children}</>;
+}
+
+function DepositHistory({
+  dreams,
+  onUpdate,
+  onRemove,
+}: {
+  dreams: Dream[];
+  onUpdate: (dreamId: string, depositId: string, amount: number) => void;
+  onRemove: (dreamId: string, depositId: string) => void;
+}) {
+  return (
+    <section className="deposit-history">
+      <div className="deposit-history-head">
+        <span><Edit3 size={18} /></span>
+        <div>
+          <small>AJUSTES DOS COFRINHOS</small>
+          <h3>HistÃ³rico de depÃ³sitos</h3>
+          <p>Corrija um valor digitado errado ou exclua apenas um depÃ³sito, sem apagar o sonho inteiro.</p>
+        </div>
+      </div>
+      <div className="deposit-history-grid">
+        {dreams.map((dream) => {
+          const deposits = getDeposits(dream);
+          return (
+            <article className="deposit-history-card" key={dream.id}>
+              <div className="deposit-history-title">
+                <span style={{ background: `${dream.color}22`, color: dream.color }}><IconForCategory category={dream.category} size={17} /></span>
+                <div>
+                  <h4>{dream.title}</h4>
+                  <small>{money(getSaved(dream))} guardados</small>
+                </div>
+              </div>
+              {deposits.length ? (
+                <div className="deposit-list">
+                  {deposits.map((deposit) => (
+                    <div className="deposit-row" key={deposit.id}>
+                      <div>
+                        <strong>{deposit.note || "DepÃ³sito"}</strong>
+                        <small>{deposit.date || "Valor anterior"}</small>
+                      </div>
+                      <input
+                        aria-label={`Editar depÃ³sito de ${dream.title}`}
+                        type="number"
+                        min="0"
+                        step="0.01"
+                        value={deposit.amount || ""}
+                        onChange={(event) => onUpdate(dream.id, deposit.id, Number(event.target.value))}
+                      />
+                      <button type="button" aria-label="Excluir depÃ³sito" onClick={() => onRemove(dream.id, deposit.id)}>
+                        <Trash2 size={15} />
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p className="deposit-empty">Nenhum depÃ³sito registrado ainda.</p>
+              )}
+            </article>
+          );
+        })}
+      </div>
+    </section>
+  );
 }
 
 function PanelTitle({ icon, title, subtitle, action, onClick }: { icon: React.ReactNode; title: string; subtitle: string; action: string; onClick: () => void }) {

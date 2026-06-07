@@ -390,8 +390,91 @@ button { cursor: pointer; }
   font-weight: 700;
 }
 
+.challenge-goals-panel {
+  margin-top: 16px;
+  padding: 18px;
+  border: 1px solid var(--dream-border);
+  border-radius: 16px;
+  background: rgba(255, 253, 248, 0.97);
+  box-shadow: 0 5px 18px rgba(90, 56, 40, 0.07);
+}
+
+.challenge-goals-head {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.challenge-goals-head > span {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  color: #a9663e;
+  background: #f4e7d7;
+}
+
+.challenge-goals-head small {
+  color: var(--dream-caramel);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .1em;
+}
+
+.challenge-goals-head h3 {
+  margin: 2px 0;
+  color: var(--dream-ink);
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
+.challenge-goals-head p {
+  color: var(--dream-muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.challenge-goals-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.challenge-goal-field {
+  display: grid;
+  gap: 6px;
+  padding: 12px;
+  border: 1px solid #ead7c2;
+  border-radius: 12px;
+  background: #fffaf3;
+}
+
+.challenge-goal-field span {
+  color: var(--dream-ink);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.challenge-goal-field input {
+  min-height: 40px;
+  padding: 8px 10px;
+  border: 1px solid #dfc4a7;
+  border-radius: 9px;
+  color: var(--dream-ink);
+  background: #fff;
+  font-size: 14px;
+  font-weight: 900;
+}
+
 @media (max-width: 760px) {
   .deposit-history-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .challenge-goals-grid {
     grid-template-columns: 1fr;
   }
 

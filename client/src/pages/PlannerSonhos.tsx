@@ -178,6 +178,7 @@ export default function PlannerSonhos() {
     if (item.id !== dreamId) return item;
     return withDeposits(item, getDeposits(item).filter((deposit) => deposit.id !== depositId));
   }));
+  const updateChallengeAmount = (challengeId: string, amount: number) => setChallenges((items) => items.map((item) => item.id === challengeId ? { ...item, amount: Math.max(0, amount) } : item));
   const toggleStep = (challenge: Challenge, step: number) => setChallenges((items) => items.map((item) => item.id === challenge.id ? { ...item, completed: item.completed.includes(step) ? item.completed.filter((value) => value !== step) : [...item.completed, step] } : item));
 
   return (
@@ -258,16 +259,87 @@ export default function PlannerSonhos() {
           <div className="badge-grid"><Badge icon={<Coffee />} title="Primeiro cafezinho" text="Concluiu sua primeira etapa" unlocked={completedSteps >= 1} /><Badge icon={<PiggyBank />} title="Cofrinho feliz" text="Guardou mais de R$ 1.000" unlocked={totalSaved >= 1000} /><Badge icon={<Target />} title="Foco delicado" text="Concluiu 25 etapas" unlocked={completedSteps >= 25} /><Badge icon={<Plane />} title="Sonho com destino" text="Criou uma meta de viagem" unlocked={dreams.some((item) => item.category === "Viagem")} /><Badge icon={<Star />} title="Metade do caminho" text="Alcançou 50% de um sonho" unlocked={dreams.some((item) => item.saved / item.target >= .5)} /><Badge icon={<Trophy />} title="Desafio completo" text="Finalizou um desafio inteiro" unlocked={challenges.some((item) => item.completed.length === item.steps)} /></div>
         </Page>}
         {view === "cofrinhos" && <DepositHistory dreams={dreams} onUpdate={updateDeposit} onRemove={removeDeposit} />}
+        {view === "desafios" && <ChallengeGoals challenges={challenges} onUpdate={updateChallengeAmount} />}
       </main>
 
       {dreamModal && <DreamModal onClose={() => setDreamModal(false)} onSave={(dream) => setDreams((items) => [dream, ...items])} />}
-      {depositDream && <DepositModal dream={depositDream} onClose={() => setDepositDream(null)} onDeposit={(amount, note) => addDeposit(depositDream, amount, note)} />}
+      {depositDream && <DepositModalClean dream={depositDream} onClose={() => setDepositDream(null)} onDeposit={(amount, note) => addDeposit(depositDream, amount, note)} />}
     </div>
   );
 }
 
 function Page({ title, eyebrow, description, action, children }: { title: string; eyebrow: string; description: string; action?: React.ReactNode; children: React.ReactNode }) {
   return <><section className="page-heading"><div><span>{eyebrow}</span><h2>{title}</h2><p>{description}</p></div>{action}</section>{children}</>;
+}
+
+function DepositModalClean({ dream, onClose, onDeposit }: { dream: Dream; onClose: () => void; onDeposit: (amount: number, note: string) => void }) {
+  const [amount, setAmount] = useState(0);
+  const [note, setNote] = useState("");
+  return (
+    <div className="dream-modal-backdrop" onMouseDown={onClose}>
+      <form
+        className="dream-modal small"
+        onMouseDown={(event) => event.stopPropagation()}
+        onSubmit={(event) => {
+          event.preventDefault();
+          if (amount > 0) {
+            onDeposit(amount, note);
+            onClose();
+          }
+        }}
+      >
+        <div className="modal-title">
+          <span><PiggyBank size={20} /></span>
+          <div><h2>Guardar para o sonho</h2><p>{dream.title}</p></div>
+          <button type="button" onClick={onClose}><X size={18} /></button>
+        </div>
+        <label className="deposit-label">
+          Quanto você quer guardar agora?
+          <input autoFocus type="number" min="1" step="0.01" value={amount || ""} onChange={(event) => setAmount(Number(event.target.value))} placeholder="R$ 0,00" />
+        </label>
+        <label className="deposit-label">
+          Anotação opcional
+          <input value={note} onChange={(event) => setNote(event.target.value)} placeholder="Ex.: Depósito do salário" />
+        </label>
+        <div className="quick-values">
+          {[25, 50, 100, 200].map((value) => <button type="button" key={value} onClick={() => setAmount(value)}>+ {money(value)}</button>)}
+        </div>
+        <div className="modal-actions">
+          <button type="button" className="dream-btn ghost" onClick={onClose}>Cancelar</button>
+          <button className="dream-btn primary">Confirmar depósito</button>
+        </div>
+      </form>
+    </div>
+  );
+}
+
+function ChallengeGoals({ challenges, onUpdate }: { challenges: Challenge[]; onUpdate: (challengeId: string, amount: number) => void }) {
+  return (
+    <section className="challenge-goals-panel">
+      <div className="challenge-goals-head">
+        <span><Target size={18} /></span>
+        <div>
+          <small>AJUSTAR METAS</small>
+          <h3>Valores dos desafios</h3>
+          <p>Edite a meta de cada desafio. O valor conquistado será recalculado automaticamente.</p>
+        </div>
+      </div>
+      <div className="challenge-goals-grid">
+        {challenges.map((challenge) => (
+          <label key={challenge.id} className="challenge-goal-field">
+            <span>{challenge.title}</span>
+            <input
+              type="number"
+              min="0"
+              step="0.01"
+              value={challenge.amount || ""}
+              onChange={(event) => onUpdate(challenge.id, Number(event.target.value))}
+            />
+          </label>
+        ))}
+      </div>
+    </section>
+  );
 }
 
 function DepositHistory({

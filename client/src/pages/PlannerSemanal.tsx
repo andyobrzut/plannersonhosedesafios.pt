@@ -68,7 +68,7 @@ export default function PlannerSemanal() {
         </div>
       </div>
 
-      <div style={{ maxWidth: 1000, margin: "1.5rem auto 2rem", padding: "0 1.5rem", display: "flex", flexDirection: "column", gap: "1.25rem" }}>
+      <div className="weekly-content" style={{ maxWidth: 1000, margin: "1.5rem auto 2rem", padding: "0 1.5rem", display: "flex", flexDirection: "column", gap: "1.25rem" }}>
 
         {/* Cabeçalho da semana */}
         <div className="planner-card" style={{ padding: "1.25rem", display: "flex", gap: "1.5rem", flexWrap: "wrap", alignItems: "center" }}>
@@ -111,7 +111,8 @@ export default function PlannerSemanal() {
         </div>
 
         {/* Grade semanal */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: "0.75rem" }}>
+        <div className="weekly-days-scroll" aria-label="Weekly days. Scroll horizontally to see all seven days.">
+          <div className="weekly-days-grid">
           {dias.map((dia, di) => {
             const cores = ["#F4B7C3","#B9DDE7","#BFD8B8","#F7D98B","#F4B7C3","#B9DDE7","#BFD8B8"];
             const coresBorda = ["#E8899A","#7BB8C8","#7BA87A","#E8C55A","#E8899A","#7BB8C8","#7BA87A"];
@@ -155,6 +156,7 @@ export default function PlannerSemanal() {
               </div>
             );
           })}
+          </div>
         </div>
 
         {/* Mini rastreador de hábitos */}

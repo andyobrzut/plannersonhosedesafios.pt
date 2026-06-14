@@ -738,3 +738,13 @@
     min-height: auto;
   }
 }
+
+
+/* Seven-day weekly view: readable on desktop and horizontally scrollable on smaller screens. */
+.weekly-content { max-width: 1500px !important; }
+.weekly-days-scroll { max-width: 100%; overflow-x: auto; overflow-y: hidden; padding-bottom: 12px; scrollbar-gutter: stable; scrollbar-color: #7bb8c8 #edf7fa; scrollbar-width: auto; }
+.weekly-days-scroll::-webkit-scrollbar { height: 14px; }
+.weekly-days-scroll::-webkit-scrollbar-track { background: #edf7fa; border-radius: 999px; }
+.weekly-days-scroll::-webkit-scrollbar-thumb { background: #7bb8c8; border: 3px solid #edf7fa; border-radius: 999px; }
+.weekly-days-grid { display: grid; grid-template-columns: repeat(7, minmax(155px, 1fr)); gap: .75rem; min-width: 1165px; }
+@media (max-width: 720px) { .weekly-days-grid { grid-template-columns: repeat(7, minmax(260px, 1fr)); min-width: 1880px; } }
